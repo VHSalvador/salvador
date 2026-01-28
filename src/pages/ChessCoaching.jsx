@@ -36,11 +36,13 @@ const ChessCoaching = () => {
                 }}
             />
             <Navbar />
-            <ChessHero />
-            <ChessMethodology />
-            <ChessStats />
-            <ChessPricing />
-            <ChessContact />
+            <main>
+                <ChessHero />
+                <ChessMethodology />
+                <ChessStats />
+                <ChessPricing />
+                <ChessContact />
+            </main>
             <ChessFooter />
         </div>
     );

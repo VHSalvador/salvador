@@ -21,7 +21,7 @@ const FunFacts = () => {
                         <div key={index} style={styles.card}>
                             <div style={styles.imageContainer}>
                                 <img
-                                    src={`${import.meta.env.BASE_URL}img/${item.imgKey}.png`}
+                                    src={`${import.meta.env.BASE_URL}img/${item.imgKey}.webp`}
                                     alt={item.title}
                                     style={styles.image}
                                     onError={(e) => { e.target.style.display = 'none'; e.target.parentNode.style.backgroundColor = '#E5E5E0' }}

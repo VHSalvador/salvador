@@ -31,7 +31,7 @@ const Hero = () => {
                     <div className="hero-right" style={styles.right}>
                         <div style={styles.imagePlaceholder}>
                             <img
-                                src={`${import.meta.env.BASE_URL}img/hero-profile.jpg`}
+                                src={`${import.meta.env.BASE_URL}img/hero-profile.webp`}
                                 alt="Salvador Villarroel"
                                 style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top', borderRadius: '16px' }}
                             />

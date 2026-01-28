@@ -30,13 +30,15 @@ const Home = () => {
                 }}
             />
             <Navbar />
-            <Hero />
-            <Stats />
-            <About />
-            <Experience />
-            <TimelineSkills />
-            <FunFacts />
-            <Contact />
+            <main>
+                <Hero />
+                <Stats />
+                <About />
+                <Experience />
+                <TimelineSkills />
+                <FunFacts />
+                <Contact />
+            </main>
             <Footer />
         </>
     );
