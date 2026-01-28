@@ -170,8 +170,10 @@ export const translations = {
                 namePlaceholder: "Enter your full name",
                 emailLabel: "Email *",
                 emailPlaceholder: "Enter your email address",
-                btn: "Schedule Call"
-            }
+                btn: "Schedule Call",
+                availableTimes: "Available Times"
+            },
+            weekDays: ['Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa', 'Su'],
         },
         timeline: [
             { year: "2005", title: "Born in Budapest" },
@@ -409,8 +411,10 @@ export const translations = {
                 namePlaceholder: "Add meg a teljes neved",
                 emailLabel: "Email *",
                 emailPlaceholder: "Add meg az email címed",
-                btn: "Hívás Ütemezése"
-            }
+                btn: "Hívás Ütemezése",
+                availableTimes: "Elérhető Időpontok"
+            },
+            weekDays: ['H', 'K', 'Sz', 'Cs', 'P', 'Sz', 'V'],
         },
         footer: {
             ctaTitle: "Készen állsz az együttműködésre? Beszéljünk.",

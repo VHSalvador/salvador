@@ -11,7 +11,7 @@ const ChessMethodology = () => {
     const icons = [Brain, Target, Handshake];
 
     return (
-        <section id="methodology" style={styles.section}>
+        <section id="methodology" className="section" style={styles.section}>
             <div className="container">
                 <h2 style={styles.title}>{method.title}</h2>
                 <div style={styles.separator}></div>
@@ -38,7 +38,7 @@ const ChessMethodology = () => {
 
 const styles = {
     section: {
-        padding: '5rem 0',
+        // padding handled by .section
         backgroundColor: '#FFFFFF',
     },
     title: {

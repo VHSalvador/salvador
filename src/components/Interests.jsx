@@ -6,19 +6,21 @@ const Interests = () => {
     const content = t('interests');
 
     return (
-        <section id="fun-facts" className="container section">
-            <h2 style={styles.header}>
-                {content.title.split('&').map((part, i, arr) => (
-                    <React.Fragment key={i}>
-                        {part}
-                        {i < arr.length - 1 && <span className="fancy-amp">&</span>}
-                    </React.Fragment>
-                ))}
-            </h2>
-            <div style={styles.grid}>
-                <InterestCard title={content.climbingTitle} desc={content.climbingDesc} />
-                <InterestCard title={content.techTitle} desc={content.techDesc} />
-                <InterestCard title={content.creativeTitle} desc={content.creativeDesc} />
+        <section id="fun-facts" className="section">
+            <div className="container">
+                <h2 style={styles.header}>
+                    {content.title.split('&').map((part, i, arr) => (
+                        <React.Fragment key={i}>
+                            {part}
+                            {i < arr.length - 1 && <span className="fancy-amp">&</span>}
+                        </React.Fragment>
+                    ))}
+                </h2>
+                <div style={styles.grid}>
+                    <InterestCard title={content.climbingTitle} desc={content.climbingDesc} />
+                    <InterestCard title={content.techTitle} desc={content.techDesc} />
+                    <InterestCard title={content.creativeTitle} desc={content.creativeDesc} />
+                </div>
             </div>
         </section>
     );

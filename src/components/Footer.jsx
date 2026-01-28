@@ -1,5 +1,6 @@
 import React from 'react';
 import { useLanguage } from '../context/LanguageContext';
+import { Github, Linkedin, Mail } from 'lucide-react';
 
 const Footer = () => {
     const { t } = useLanguage();
@@ -17,38 +18,20 @@ const Footer = () => {
             {/* Main Footer Content */}
             <div style={styles.footerMain}>
                 <div className="container" style={styles.container}>
-                    <div style={styles.grid}>
-                        {/* Column 1: Brand */}
-                        <div style={styles.col}>
-                            <h3 style={styles.colHeader}>{content.brand}</h3>
-                            <ul style={styles.linkList}>
-                                <li><a href="#about" style={styles.link}>{content.brandLinks.about}</a></li>
-                                <li><a href="#work" style={styles.link}>{content.brandLinks.work}</a></li>
-                                <li><a href="#contact" style={styles.link}>{content.brandLinks.contact}</a></li>
-                            </ul>
-                        </div>
-
-                        {/* Column 2: Connect Links */}
-                        <div style={styles.col}>
-                            <h3 style={styles.colHeader}>{content.connect}</h3>
-                            <div style={styles.socialIcons}>
-                                <a href="#" onClick={(e) => e.preventDefault()} style={styles.iconLink}>GitHub</a>
-                                <a href="#" onClick={(e) => e.preventDefault()} style={styles.iconLink}>LinkedIn</a>
-                                <a href="#" onClick={(e) => e.preventDefault()} style={styles.iconLink}>Email</a>
-                            </div>
-                        </div>
-
-                        {/* Column 3: Stats */}
-                        <div style={styles.col}>
-                            <h3 style={styles.colHeader}>{content.statsTitle}</h3>
-                            <p style={styles.statItem}>{content.stats.students}</p>
-                            <p style={styles.statItem}>{content.stats.community}</p>
-                            <p style={styles.quote}>{content.stats.quote}</p>
-                        </div>
+                    <div style={styles.socialIcons}>
+                        <a href="https://github.com" target="_blank" rel="noopener noreferrer" style={styles.iconLink} aria-label="GitHub Profile">
+                            <Github size={24} />
+                        </a>
+                        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" style={styles.iconLink} aria-label="LinkedIn Profile">
+                            <Linkedin size={24} />
+                        </a>
+                        <a href={`mailto:salvador.vh05@gmail.com`} style={styles.iconLink} aria-label="Send Email">
+                            <Mail size={24} />
+                        </a>
                     </div>
-                    <div style={styles.copyright}>
-                        &copy; {content.copyright}
-                    </div>
+                </div>
+                <div style={styles.copyright}>
+                    &copy; {content.copyright}
                 </div>
             </div>
         </footer >
@@ -60,7 +43,7 @@ const styles = {
         marginTop: '3rem',
     },
     ctaSection: {
-        backgroundColor: '#6B8C9E', // Softer Blue
+        backgroundColor: '#6B8C9E',
         padding: '3rem 1.5rem',
         textAlign: 'center',
         color: '#fff',
@@ -87,10 +70,11 @@ const styles = {
         border: 'none',
         fontSize: '0.9rem',
         fontWeight: 'bold',
+        cursor: 'pointer',
     },
     footerMain: {
-        backgroundColor: '#6B8C9E', // Softer Blue
-        padding: '2rem 0 1rem',
+        backgroundColor: '#6B8C9E',
+        padding: '2rem 0',
         borderTop: '1px solid rgba(255,255,255,0.1)',
         color: '#fff',
     },
@@ -98,57 +82,26 @@ const styles = {
         maxWidth: '1200px',
         margin: '0 auto',
         padding: '0 2rem',
-    },
-    grid: {
-        display: 'grid',
-        gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
-        gap: '2rem',
-        marginBottom: '2rem',
-    },
-    colHeader: {
-        fontFamily: 'var(--font-serif)',
-        fontSize: '1.25rem',
-        marginBottom: '1rem',
-        color: '#fff',
-    },
-    linkList: {
-        listStyle: 'none',
-        padding: 0,
         display: 'flex',
-        flexDirection: 'column',
-        gap: '0.5rem',
-    },
-    link: {
-        color: 'rgba(255,255,255,0.8)',
-        textDecoration: 'none',
-        transition: 'color 0.2s',
-        fontSize: '0.9rem',
+        justifyContent: 'center',
+        alignItems: 'center',
     },
     socialIcons: {
         display: 'flex',
-        gap: '1rem',
-        color: 'rgba(255,255,255,0.8)',
+        gap: '2rem',
+        color: '#fff',
+        marginBottom: '1rem',
     },
     iconLink: {
         color: 'rgba(255,255,255,0.8)',
         textDecoration: 'none',
-        fontSize: '0.9rem',
-    },
-    statItem: {
-        marginBottom: '0.5rem',
-        color: 'rgba(255,255,255,0.8)',
-        fontSize: '0.9rem',
-    },
-    quote: {
-        marginTop: '1rem',
-        fontStyle: 'italic',
-        color: 'rgba(255,255,255,0.6)',
-        fontSize: '0.9rem',
+        transition: 'color 0.2s, transform 0.2s',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
     },
     copyright: {
         textAlign: 'center',
-        paddingTop: '1rem',
-        borderTop: '1px solid rgba(255,255,255,0.1)',
         fontSize: '0.8rem',
         color: 'rgba(255,255,255,0.6)',
     },

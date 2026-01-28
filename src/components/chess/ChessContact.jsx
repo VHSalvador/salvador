@@ -7,26 +7,26 @@ const ChessContact = () => {
     const contact = chess.contact || {};
 
     return (
-        <section id="contact" style={styles.section}>
+        <section id="contact" className="section" style={styles.section}>
             <div className="container" style={styles.container}>
                 <div style={styles.wrapper}>
                     <h2 style={styles.title}>{contact.headline}</h2>
                     <form style={styles.form}>
                         <div style={styles.formGroup}>
-                            <label style={styles.label}>{contact.nameLabel}</label>
-                            <input type="text" style={styles.input} placeholder={contact.nameLabel} />
+                            <label htmlFor="name" style={styles.label}>{contact.nameLabel}</label>
+                            <input id="name" type="text" style={styles.input} placeholder={contact.nameLabel} />
                         </div>
                         <div style={styles.formGroup}>
-                            <label style={styles.label}>{contact.emailLabel}</label>
-                            <input type="email" style={styles.input} placeholder={contact.emailLabel} />
+                            <label htmlFor="email" style={styles.label}>{contact.emailLabel}</label>
+                            <input id="email" type="email" style={styles.input} placeholder={contact.emailLabel} />
                         </div>
                         <div style={styles.formGroup}>
-                            <label style={styles.label}>{contact.kindergartenLabel}</label>
-                            <input type="text" style={styles.input} placeholder={contact.kindergartenLabel} />
+                            <label htmlFor="kindergarten" style={styles.label}>{contact.kindergartenLabel}</label>
+                            <input id="kindergarten" type="text" style={styles.input} placeholder={contact.kindergartenLabel} />
                         </div>
                         <div style={styles.formGroup}>
-                            <label style={styles.label}>{contact.messageLabel}</label>
-                            <textarea style={styles.textarea} placeholder={contact.messageLabel} rows="4"></textarea>
+                            <label htmlFor="message" style={styles.label}>{contact.messageLabel}</label>
+                            <textarea id="message" style={styles.textarea} placeholder={contact.messageLabel} rows="4"></textarea>
                         </div>
                         <button type="submit" className="btn" style={styles.submitBtn}>
                             {contact.submitBtn}
@@ -40,7 +40,7 @@ const ChessContact = () => {
 
 const styles = {
     section: {
-        padding: '5rem 0',
+        // padding handled by .section
         backgroundColor: '#F3F3E9', // Match main theme bg for contact
     },
     container: {

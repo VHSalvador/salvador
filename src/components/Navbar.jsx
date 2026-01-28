@@ -8,33 +8,46 @@ const Navbar = () => {
     const location = useLocation();
     const isChessPage = location.pathname === '/chess-coaching';
 
+    const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+
+    const toggleMenu = () => {
+        setIsMenuOpen(!isMenuOpen);
+    };
+
     return (
-        <nav style={styles.nav}>
-            <div className="container" style={styles.container}>
+        <nav className="navbar" style={styles.nav}>
+            <div className="container nav-container" style={styles.container}>
                 <div style={styles.logo}>
                     <span style={styles.icon}>📖</span> Salvador Villarroel
                 </div>
-                <div style={styles.links}>
+
+                <button className="hamburger" onClick={toggleMenu} aria-label="Toggle navigation menu" style={styles.hamburgerBtn}>
+                    <span className={isMenuOpen ? "bar open" : "bar"}></span>
+                    <span className={isMenuOpen ? "bar open" : "bar"}></span>
+                    <span className={isMenuOpen ? "bar open" : "bar"}></span>
+                </button>
+
+                <div className={`nav-links ${isMenuOpen ? "active" : ""}`} style={styles.links}>
                     {!isChessPage ? (
                         <>
-                            <a href="#about">{nav.about}</a>
-                            <a href="#work">{nav.work}</a>
-                            <a href="#fun-facts">{nav.funFacts}</a>
-                            <Link to="/chess-coaching" style={{ ...styles.link, ...styles.highlight }}>{nav.chessCoaching}</Link>
-                            <button style={styles.langBtn} onClick={toggleLanguage}>
+                            <a href="#about" onClick={() => setIsMenuOpen(false)}>{nav.about}</a>
+                            <a href="#about" onClick={() => setIsMenuOpen(false)}>{nav.work}</a>
+                            <a href="#fun-facts" onClick={() => setIsMenuOpen(false)}>{nav.funFacts}</a>
+                            <Link to="/chess-coaching" style={{ ...styles.link, ...styles.highlight }} onClick={() => setIsMenuOpen(false)}>{nav.chessCoaching}</Link>
+                            <button style={styles.langBtn} onClick={() => { toggleLanguage(); setIsMenuOpen(false); }}>
                                 {language === 'en' ? 'HU' : 'EN'}
                             </button>
-                            <a href="#contact" className="btn btn-primary" style={styles.contactBtn}>{nav.contact}</a>
+                            <a href="#contact" className="btn btn-primary" style={styles.contactBtn} onClick={() => setIsMenuOpen(false)}>{nav.contact}</a>
                         </>
                     ) : (
                         <>
-                            <a href="#methodology">{t('chess.nav.methodology')}</a>
-                            <a href="#details">{t('chess.nav.details')}</a>
-                            <a href="#contact">{t('chess.nav.contact')}</a>
-                            <button style={styles.langBtn} onClick={toggleLanguage}>
+                            <a href="#methodology" onClick={() => setIsMenuOpen(false)}>{t('chess.nav.methodology')}</a>
+                            <a href="#details" onClick={() => setIsMenuOpen(false)}>{t('chess.nav.details')}</a>
+                            <a href="#contact" onClick={() => setIsMenuOpen(false)}>{t('chess.nav.contact')}</a>
+                            <button style={styles.langBtn} onClick={() => { toggleLanguage(); setIsMenuOpen(false); }}>
                                 {language === 'en' ? 'HU' : 'EN'}
                             </button>
-                            <Link to="/" className="btn btn-primary" style={{ ...styles.contactBtn, marginLeft: '1rem' }}>
+                            <Link to="/" className="btn btn-primary" style={{ ...styles.contactBtn, marginLeft: '1rem' }} onClick={() => setIsMenuOpen(false)}>
                                 {t('chess.nav.backToPortfolio')}
                             </Link>
                         </>
@@ -47,17 +60,10 @@ const Navbar = () => {
 
 const styles = {
     nav: {
-        backgroundColor: 'var(--color-text-primary)', // Slate Blue
-        color: 'var(--color-bg)',
-        padding: '1rem 0',
-        position: 'sticky',
-        top: 0,
-        zIndex: 1000,
+        // backgroundColor, color, padding, position, top, zIndex MOVED TO CSS .navbar
     },
     container: {
-        display: 'flex',
-        justifyContent: 'space-between',
-        alignItems: 'center',
+        // display, justifyContent, alignItems MOVED TO CSS .nav-container
     },
     logo: {
         fontFamily: 'var(--font-serif)',
@@ -71,10 +77,7 @@ const styles = {
         fontSize: '1.5rem',
     },
     links: {
-        display: 'flex',
-        gap: '2rem',
-        alignItems: 'center',
-        fontSize: '0.9rem',
+        // display, gap, alignItems, fontSize MOVED TO CSS .nav-links
     },
     link: {
         textDecoration: 'none',
@@ -95,6 +98,12 @@ const styles = {
     contactBtn: {
         backgroundColor: '#1E3A5F', // Dark Navy
         border: 'none',
+    },
+    hamburgerBtn: {
+        background: 'none',
+        border: 'none',
+        padding: 0,
+        cursor: 'pointer',
     }
 };
 

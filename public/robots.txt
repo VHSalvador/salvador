@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://vhsalvador.github.io/salvador/sitemap.xml

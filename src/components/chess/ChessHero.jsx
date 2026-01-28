@@ -14,7 +14,7 @@ const ChessHero = () => {
     const ctaSecondary = hero.ctaSecondary || "View Groups";
 
     return (
-        <section style={styles.section}>
+        <section className="section" style={styles.section}>
             <div className="container" style={styles.container}>
                 <div style={styles.content}>
                     <h1 style={styles.title}>{headline}</h1>
@@ -43,7 +43,7 @@ const ChessHero = () => {
 
 const styles = {
     section: {
-        padding: '6rem 0',
+        // padding handled by .section
         backgroundColor: '#FDFCF8',
         display: 'flex',
         alignItems: 'center',

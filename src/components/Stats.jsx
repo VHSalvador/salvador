@@ -7,7 +7,7 @@ const Stats = () => {
 
     return (
         <section className="container">
-            <div style={styles.grid}>
+            <div className="stats-container">
                 <StatCard number={stats.students} label={stats.studentsLabel} />
                 <StatCard number={stats.members} label={stats.membersLabel} />
                 <StatCard number={stats.years} label={stats.yearsLabel} />
@@ -18,19 +18,14 @@ const Stats = () => {
 };
 
 const StatCard = ({ number, label }) => (
-    <div style={styles.card}>
+    <div className="stat-item" style={styles.card}>
         <div style={styles.number}>{number}</div>
         <div style={styles.label}>{label}</div>
     </div>
 );
 
 const styles = {
-    grid: {
-        display: 'grid',
-        gridTemplateColumns: 'repeat(4, 1fr)',
-        gap: '2rem',
-        marginBottom: '5rem',
-    },
+    // grid styles moved to .stats-container
     card: {
         backgroundColor: '#FFFFFF',
         padding: '2rem 1rem',

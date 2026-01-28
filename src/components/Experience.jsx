@@ -6,37 +6,39 @@ const Experience = () => {
     const content = t('experience');
 
     return (
-        <section id="work" className="container section">
-            <h2 style={styles.header}>
-                {content.title.split('&').map((part, i, arr) => (
-                    <React.Fragment key={i}>
-                        {part}
-                        {i < arr.length - 1 && <span className="fancy-amp">&</span>}
-                    </React.Fragment>
-                ))}
-            </h2>
-            <div style={styles.grid}>
-                <div style={styles.item}>
-                    <h3 style={styles.subHeader}>
-                        {content.teachingTitle.split('&').map((part, i, arr) => (
-                            <React.Fragment key={i}>
-                                {part}
-                                {i < arr.length - 1 && <span className="fancy-amp">&</span>}
-                            </React.Fragment>
-                        ))}
-                    </h3>
-                    <p style={styles.desc}>{content.teachingDesc}</p>
-                </div>
-                <div style={styles.item}>
-                    <h3 style={styles.subHeader}>
-                        {content.communityTitle.split('&').map((part, i, arr) => (
-                            <React.Fragment key={i}>
-                                {part}
-                                {i < arr.length - 1 && <span className="fancy-amp">&</span>}
-                            </React.Fragment>
-                        ))}
-                    </h3>
-                    <p style={styles.desc}>{content.communityDesc}</p>
+        <section id="work" className="section">
+            <div className="container">
+                <h2 style={styles.header}>
+                    {content.title.split('&').map((part, i, arr) => (
+                        <React.Fragment key={i}>
+                            {part}
+                            {i < arr.length - 1 && <span className="fancy-amp">&</span>}
+                        </React.Fragment>
+                    ))}
+                </h2>
+                <div style={styles.grid}>
+                    <div style={styles.item}>
+                        <h3 style={styles.subHeader}>
+                            {content.teachingTitle.split('&').map((part, i, arr) => (
+                                <React.Fragment key={i}>
+                                    {part}
+                                    {i < arr.length - 1 && <span className="fancy-amp">&</span>}
+                                </React.Fragment>
+                            ))}
+                        </h3>
+                        <p style={styles.desc}>{content.teachingDesc}</p>
+                    </div>
+                    <div style={styles.item}>
+                        <h3 style={styles.subHeader}>
+                            {content.communityTitle.split('&').map((part, i, arr) => (
+                                <React.Fragment key={i}>
+                                    {part}
+                                    {i < arr.length - 1 && <span className="fancy-amp">&</span>}
+                                </React.Fragment>
+                            ))}
+                        </h3>
+                        <p style={styles.desc}>{content.communityDesc}</p>
+                    </div>
                 </div>
             </div>
         </section>

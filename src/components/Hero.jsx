@@ -6,34 +6,36 @@ const Hero = () => {
     const content = t('hero');
 
     return (
-        <section className="container section" style={styles.section}>
-            <div style={styles.grid}>
-                <div style={styles.left}>
-                    <small style={styles.tagline}>{content.tagline}</small>
-                    <h1 style={styles.title}>{content.title}</h1>
-                    <p style={styles.description}>{content.description}</p>
+        <section className="section" style={styles.section}>
+            <div className="container" style={{ width: '100%' }}>
+                <div className="hero-grid">
+                    <div style={styles.left}>
+                        <small style={styles.tagline}>{content.tagline}</small>
+                        <h1 style={styles.title}>{content.title}</h1>
+                        <p style={styles.description}>{content.description}</p>
 
-                    <div style={styles.buttons}>
-                        <a href="#work" className="btn btn-dark">{content.btnLearn}</a>
-                        <a href="#contact" className="btn btn-secondary">{content.btnTouch}</a>
-                    </div>
+                        <div className="buttons" style={styles.buttons}>
+                            <a href="#work" className="btn btn-dark">{content.btnLearn}</a>
+                            <a href="#contact" className="btn btn-secondary">{content.btnTouch}</a>
+                        </div>
 
-                    <div style={styles.quoteBox}>
-                        <div style={styles.quoteLine}></div>
-                        <div style={styles.quoteContent}>
-                            <p style={styles.quoteText}>{content.quote}</p>
-                            <span style={styles.quoteAuthor}>{content.quoteAuthor}</span>
+                        <div style={styles.quoteBox}>
+                            <div style={styles.quoteLine}></div>
+                            <div style={styles.quoteContent}>
+                                <p style={styles.quoteText}>{content.quote}</p>
+                                <span style={styles.quoteAuthor}>{content.quoteAuthor}</span>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <div style={styles.right}>
-                    <div style={styles.imagePlaceholder}>
-                        <img
-                            src="/img/hero-profile.jpg"
-                            alt="Salvador Villarroel"
-                            style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top', borderRadius: '16px' }}
-                        />
+                    <div className="hero-right" style={styles.right}>
+                        <div style={styles.imagePlaceholder}>
+                            <img
+                                src={`${import.meta.env.BASE_URL}img/hero-profile.jpg`}
+                                alt="Salvador Villarroel"
+                                style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top', borderRadius: '16px' }}
+                            />
+                        </div>
                     </div>
                 </div>
             </div>
@@ -47,12 +49,7 @@ const styles = {
         display: 'flex',
         alignItems: 'center',
     },
-    grid: {
-        display: 'grid',
-        gridTemplateColumns: '1.2fr 1fr',
-        gap: '4rem',
-        alignItems: 'center',
-    },
+    // Grid removed, handled by CSS .hero-grid
     tagline: {
         color: 'var(--color-text-secondary)',
         textTransform: 'uppercase',

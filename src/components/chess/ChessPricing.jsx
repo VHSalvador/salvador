@@ -8,7 +8,7 @@ const ChessPricing = () => {
     const cards = pricing.cards || [];
 
     return (
-        <section id="details" style={styles.section}>
+        <section id="details" className="section" style={styles.section}>
             <div className="container" style={styles.container}>
                 <div style={styles.header}>
                     <h2 style={styles.title}>{pricing.detailsTitle}</h2>
@@ -41,7 +41,7 @@ const ChessPricing = () => {
 
 const styles = {
     section: {
-        padding: '5rem 0',
+        // padding handled by .section
         backgroundColor: '#FFFFFF',
     },
     container: {

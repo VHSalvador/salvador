@@ -6,39 +6,41 @@ const FunFacts = () => {
     const content = t('funFacts');
 
     return (
-        <section id="fun-facts" className="container section">
-            <h2 style={styles.header}>
-                {content.title.split('&').map((part, i, arr) => (
-                    <React.Fragment key={i}>
-                        {part}
-                        {i < arr.length - 1 && <span className="fancy-amp">&</span>}
-                    </React.Fragment>
-                ))}
-            </h2>
-            <div style={styles.grid}>
-                {content.items.map((item, index) => (
-                    <div key={index} style={styles.card}>
-                        <div style={styles.imageContainer}>
-                            <img
-                                src={`/img/${item.imgKey}.png`}
-                                alt={item.title}
-                                style={styles.image}
-                                onError={(e) => { e.target.style.display = 'none'; e.target.parentNode.style.backgroundColor = '#E5E5E0' }}
-                            />
+        <section id="fun-facts" className="section">
+            <div className="container">
+                <h2 style={styles.header}>
+                    {content.title.split('&').map((part, i, arr) => (
+                        <React.Fragment key={i}>
+                            {part}
+                            {i < arr.length - 1 && <span className="fancy-amp">&</span>}
+                        </React.Fragment>
+                    ))}
+                </h2>
+                <div style={styles.grid}>
+                    {content.items.map((item, index) => (
+                        <div key={index} style={styles.card}>
+                            <div style={styles.imageContainer}>
+                                <img
+                                    src={`${import.meta.env.BASE_URL}img/${item.imgKey}.png`}
+                                    alt={item.title}
+                                    style={styles.image}
+                                    onError={(e) => { e.target.style.display = 'none'; e.target.parentNode.style.backgroundColor = '#E5E5E0' }}
+                                />
+                            </div>
+                            <div style={styles.content}>
+                                <h3 style={styles.title}>
+                                    {item.title.split('&').map((part, i, arr) => (
+                                        <React.Fragment key={i}>
+                                            {part}
+                                            {i < arr.length - 1 && <span className="fancy-amp">&</span>}
+                                        </React.Fragment>
+                                    ))}
+                                </h3>
+                                <p style={styles.desc}>{item.desc}</p>
+                            </div>
                         </div>
-                        <div style={styles.content}>
-                            <h3 style={styles.cardTitle}>
-                                {item.title.split('&').map((part, i, arr) => (
-                                    <React.Fragment key={i}>
-                                        {part}
-                                        {i < arr.length - 1 && <span className="fancy-amp">&</span>}
-                                    </React.Fragment>
-                                ))}
-                            </h3>
-                            <p style={styles.desc}>{item.desc}</p>
-                        </div>
-                    </div>
-                ))}
+                    ))}
+                </div>
             </div>
         </section>
     );
@@ -50,7 +52,6 @@ const styles = {
         marginBottom: '3rem',
         fontFamily: 'var(--font-serif)',
         fontSize: '2.5rem',
-        color: 'var(--color-text-primary)',
     },
     grid: {
         display: 'grid',

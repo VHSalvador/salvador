@@ -6,22 +6,24 @@ const About = () => {
     const content = t('about');
 
     return (
-        <section id="about" className="container section" style={styles.section}>
-            <h2 style={styles.header}>{content.title}</h2>
-            <div style={styles.grid}>
-                <div style={styles.left}>
-                    <div style={styles.quoteBox}>
+        <section id="about" className="section" style={styles.section}>
+            <div className="container">
+                <h2 style={styles.header}>{content.title}</h2>
+                <div className="about-grid">
+                    <div className="about-quote" style={styles.quoteBox}>
                         <p style={styles.quote}>{content.quote}</p>
                     </div>
-                    <div style={styles.text}>
+
+                    <div className="about-text" style={styles.text}>
                         <p>{content.p1}</p>
                         <br />
                         <p>{content.p2}</p>
                     </div>
-                </div>
-                <div style={styles.right}>
-                    <div style={styles.imagePlaceholder}>
-                        {/* Placeholder for Headshot */}
+
+                    <div className="about-image">
+                        <div style={styles.imagePlaceholder}>
+                            {/* Placeholder for Headshot */}
+                        </div>
                     </div>
                 </div>
             </div>
@@ -34,13 +36,7 @@ const styles = {
         paddingTop: '2rem',
     },
     header: {
-        color: 'var(--color-text-primary)',
         marginBottom: '3rem',
-    },
-    grid: {
-        display: 'grid',
-        gridTemplateColumns: '1.5fr 1fr', // Text takes more space
-        gap: '4rem',
     },
     quoteBox: {
         borderLeft: '4px solid var(--color-accent)',

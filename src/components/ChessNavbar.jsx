@@ -7,17 +7,30 @@ const ChessNavbar = () => {
     // Safely access nested properties with fallbacks
     const chessNav = t('chess')?.nav || {};
 
+    const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+
+    const toggleMenu = () => {
+        setIsMenuOpen(!isMenuOpen);
+    };
+
     return (
         <nav style={styles.nav}>
             <div className="container" style={styles.container}>
                 <div style={styles.logo}>
                     <span style={styles.icon}>♟️</span> {chessNav.title || 'Salvador Chess'}
                 </div>
-                <div style={styles.links}>
-                    <Link to="/" style={styles.backLink}>
+
+                <div className="hamburger" onClick={toggleMenu}>
+                    <span className={isMenuOpen ? "bar open" : "bar"}></span>
+                    <span className={isMenuOpen ? "bar open" : "bar"}></span>
+                    <span className={isMenuOpen ? "bar open" : "bar"}></span>
+                </div>
+
+                <div className={`chess-nav-links ${isMenuOpen ? "active" : ""}`}>
+                    <Link to="/" style={styles.backLink} onClick={() => setIsMenuOpen(false)}>
                         {chessNav.backToPortfolio || 'Back to Portfolio'}
                     </Link>
-                    <button style={styles.langBtn} onClick={toggleLanguage}>
+                    <button style={styles.langBtn} onClick={() => { toggleLanguage(); setIsMenuOpen(false); }}>
                         {language === 'en' ? 'HU' : 'EN'}
                     </button>
                 </div>
@@ -54,10 +67,7 @@ const styles = {
         fontSize: '1.5rem',
     },
     links: {
-        display: 'flex',
-        gap: '1.5rem',
-        alignItems: 'center',
-        fontSize: '0.9rem',
+        // Moved to CSS .chess-nav-links
     },
     backLink: {
         color: '#D97746', // Accent color
