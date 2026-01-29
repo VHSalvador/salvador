@@ -1,10 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap');
-
 :root {
   /* Color Palette */
   --color-bg: #F3F3E9;
   --color-text-primary: #6B8C9E;
-  --color-text-secondary: #555555;
+  --color-text-secondary: #333333;
+  /* Darkened from #555555 for WCAG AA contrast */
   --color-accent: #D97746;
   --color-white: #FFFFFF;
   --color-blue-dark: #1E3A5F;

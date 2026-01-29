@@ -30,8 +30,11 @@ const ChessHero = () => {
                         I'll use a placeholder style that fits the theme. */}
                     <div style={styles.placeholderImg}>
                         <img
-                            src="https://images.unsplash.com/photo-1529699211952-734e80c4d42b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+                            src={`${import.meta.env.BASE_URL}img/chess.webp`}
                             alt="Chess Education"
+                            width="600"
+                            height="400"
+                            loading="eager"
                             style={styles.img}
                         />
                     </div>

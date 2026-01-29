@@ -32,7 +32,48 @@ const ChessCoaching = () => {
                     "offers": {
                         "@type": "Offer",
                         "description": "Próbaóra ingyenes"
-                    }
+                    },
+                    "review": [
+                        {
+                            "@type": "Review",
+                            "reviewRating": {
+                                "@type": "Rating",
+                                "ratingValue": "5",
+                                "bestRating": "5"
+                            },
+                            "author": {
+                                "@type": "Person",
+                                "name": "Bogi szülei"
+                            },
+                            "reviewBody": "Bogi felvételi pontszámát 9 pontról 27 pontra húztuk fel 2 hét alatt."
+                        },
+                        {
+                            "@type": "Review",
+                            "reviewRating": {
+                                "@type": "Rating",
+                                "ratingValue": "5",
+                                "bestRating": "5"
+                            },
+                            "author": {
+                                "@type": "Person",
+                                "name": "Marci szülei"
+                            },
+                            "reviewBody": "Marcinak segítettem jobban fókuszálni, és átlátni a matekot."
+                        },
+                        {
+                            "@type": "Review",
+                            "reviewRating": {
+                                "@type": "Rating",
+                                "ratingValue": "5",
+                                "bestRating": "5"
+                            },
+                            "author": {
+                                "@type": "Person",
+                                "name": "Egy szülő"
+                            },
+                            "reviewBody": "A gyermekem megszerette a sakkot, és ha valamiért nincs sakk, azt a világ végének éli meg."
+                        }
+                    ]
                 }}
             />
             <Navbar />
