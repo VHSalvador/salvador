@@ -118,7 +118,7 @@ const Contact = () => {
                 emailjs.send(serviceId, templateId, adminParams, publicKey),
                 emailjs.send(serviceId, confirmationTemplateId, clientParams, publicKey)
             ]);
-            console.log('Emails sent successfully!');
+
             setBookingStatus('success');
 
             // Send confirmation auto-reply (optional: usually handled by EmailJS "Auto-Reply" setting in dashboard, 
