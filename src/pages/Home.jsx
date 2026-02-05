@@ -21,6 +21,7 @@ const Home = () => {
                     "@type": "Person",
                     "name": "Salvador Villarroel",
                     "url": "https://vhsalvador.github.io/salvador/",
+                    "image": "https://vhsalvador.github.io/salvador/img/hero-profile-new.jpg",
                     "jobTitle": "Full Stack Developer",
                     "knowsAbout": ["React", "JavaScript", "Node.js", "Web Development", "Chess"],
                     "sameAs": [

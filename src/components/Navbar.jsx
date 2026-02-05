@@ -18,7 +18,7 @@ const Navbar = () => {
         <nav className="navbar" style={styles.nav}>
             <div className="container nav-container" style={styles.container}>
                 <div style={styles.logo}>
-                    <span style={styles.icon}>📖</span> Salvador Villarroel
+                    <span style={styles.icon} role="img" aria-label="book icon">📖</span> Salvador Villarroel
                 </div>
 
                 <button className="hamburger" onClick={toggleMenu} aria-label="Toggle navigation menu" style={styles.hamburgerBtn}>

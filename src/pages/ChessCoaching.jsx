@@ -29,9 +29,17 @@ const ChessCoaching = () => {
                     },
                     "areaServed": "Budapest",
                     "description": "Játékos sakkoktatás óvodás kortól, megértés alapú módszertannal. Egyéni és csoportos órák.",
+                    "image": "https://vhsalvador.github.io/salvador/img/chess.webp",
+                    "aggregateRating": {
+                        "@type": "AggregateRating",
+                        "ratingValue": "5",
+                        "reviewCount": "3"
+                    },
                     "offers": {
                         "@type": "Offer",
-                        "description": "Próbaóra ingyenes"
+                        "description": "Próbaóra ingyenes",
+                        "price": "0",
+                        "priceCurrency": "HUF"
                     },
                     "review": [
                         {

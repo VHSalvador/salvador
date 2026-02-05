@@ -31,9 +31,18 @@ const Hero = () => {
                     <div className="hero-right" style={styles.right}>
                         <div style={styles.imagePlaceholder}>
                             <img
-                                src={`${import.meta.env.BASE_URL}img/hero-profile-new.jpg`}
                                 alt="Salvador Villarroel"
-                                style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top', borderRadius: '16px' }}
+                                src={`${import.meta.env.BASE_URL}img/hero-profile-new.webp`}
+                                srcSet={`
+                                    ${import.meta.env.BASE_URL}img/hero-profile-new-small.webp 400w,
+                                    ${import.meta.env.BASE_URL}img/hero-profile-new-medium.webp 800w,
+                                    ${import.meta.env.BASE_URL}img/hero-profile-new.webp 1200w
+                                `}
+                                sizes="(max-width: 768px) 100vw, 50vw"
+                                style={styles.image}
+                                fetchPriority="high"
+                                width="800"
+                                height="1000"
                             />
                         </div>
                     </div>
@@ -112,6 +121,13 @@ const styles = {
         borderRadius: '16px',
         boxShadow: '20px 20px 0px rgba(0,0,0,0.05)',
     },
+    image: {
+        width: '100%',
+        height: '100%',
+        objectFit: 'cover',
+        objectPosition: 'top',
+        borderRadius: '16px'
+    }
 };
 
 export default Hero;

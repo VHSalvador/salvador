@@ -13,8 +13,11 @@ const Contact = () => {
     const [formData, setFormData] = useState({ name: '', email: '' });
     const [bookingStatus, setBookingStatus] = useState(null); // null, 'submitting', 'success', 'error'
     const [bookedSlots, setBookedSlots] = useState(() => {
-        const saved = localStorage.getItem('bookedSlots');
-        return saved ? JSON.parse(saved) : {};
+        if (typeof window !== 'undefined') {
+            const saved = localStorage.getItem('bookedSlots');
+            return saved ? JSON.parse(saved) : {};
+        }
+        return {};
     });
 
     // Calendar Helper Functions
@@ -195,9 +198,9 @@ const Contact = () => {
                                     <div style={styles.calendarCol}>
                                         <div style={styles.calendar}>
                                             <div style={styles.calHeader}>
-                                                <button onClick={handlePrevMonth} style={styles.navBtn}><ChevronLeft size={20} /></button>
+                                                <button onClick={handlePrevMonth} style={styles.navBtn} aria-label={t('contact.calendar.prevMonth') || "Previous month"}><ChevronLeft size={20} /></button>
                                                 <span>{currentDate.toLocaleDateString('default', { month: 'long', year: 'numeric' })}</span>
-                                                <button onClick={handleNextMonth} style={styles.navBtn}><ChevronRight size={20} /></button>
+                                                <button onClick={handleNextMonth} style={styles.navBtn} aria-label={t('contact.calendar.nextMonth') || "Next month"}><ChevronRight size={20} /></button>
                                             </div>
                                             <div style={styles.calGrid}>
                                                 {weekDays.map(d => <div key={d} style={styles.calDayHeader}>{d}</div>)}
