@@ -29,6 +29,7 @@ const Home = () => {
                         "https://linkedin.com/in/salvador-villarroel"
                     ]
                 }}
+                image="/img/hero-profile-new.jpg"
             />
             <Navbar />
             <main>

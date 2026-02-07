@@ -83,6 +83,7 @@ const ChessCoaching = () => {
                         }
                     ]
                 }}
+                image="/img/chess.png"
             />
             <Navbar />
             <main>

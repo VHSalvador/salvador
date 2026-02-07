@@ -3,7 +3,7 @@ import { Helmet } from 'react-helmet-async';
 import { useLocation } from 'react-router-dom';
 import { useLanguage } from '../context/LanguageContext';
 
-const SEO = ({ title, description, keywords, name, type, schema }) => {
+const SEO = ({ title, description, keywords, name, type, schema, image }) => {
     const { language } = useLanguage();
     const location = useLocation();
 
@@ -17,6 +17,9 @@ const SEO = ({ title, description, keywords, name, type, schema }) => {
     // Remove leading slash from pathname to avoid double slashes if siteUrl ends with / (it doesn't here)
     const pathname = location.pathname === '/' ? '' : location.pathname.replace(/^\//, '');
     const canonicalUrl = `${siteUrl}/${pathname}`;
+
+    // Construct absolute image URL
+    const imageUrl = image?.startsWith('http') ? image : `${siteUrl}${image}`;
 
     return (
         <Helmet>
@@ -32,12 +35,15 @@ const SEO = ({ title, description, keywords, name, type, schema }) => {
             <meta property="og:type" content={type} />
             <meta property="og:title" content={title} />
             <meta property="og:description" content={description} />
+            <meta property="og:image" content={imageUrl} />
+            <meta property="og:url" content={canonicalUrl} />
             {/* End Facebook tags */}
             {/* Twitter tags */}
             <meta name="twitter:creator" content={name} />
-            <meta name="twitter:card" content={type} />
+            <meta name="twitter:card" content="summary_large_image" />
             <meta name="twitter:title" content={title} />
             <meta name="twitter:description" content={description} />
+            <meta name="twitter:image" content={imageUrl} />
             {/* End Twitter tags */}
 
             {schema && (
@@ -54,7 +60,8 @@ SEO.defaultProps = {
     description: 'Salvador Villarroel weboldala és portfóliója.',
     keywords: 'web developer, react, portfolio, chess coach, sakk oktatás',
     name: 'Salvador Villarroel',
-    type: 'website'
+    type: 'website',
+    image: '/img/hero-profile-new.jpg'
 };
 
 export default SEO;
