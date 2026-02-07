@@ -15,7 +15,7 @@ const Home = () => {
         <>
             <SEO
                 title="Salvador Villarroel - Full Stack Fejlesztő & Automatizálási Szakértő"
-                description="Salvador Villarroel portfóliója. Full Stack fejlesztő, Automatizálási szakértő, React és modern webes megoldások."
+                description="Salvador Villarroel portfóliója. Full Stack fejlesztő, Automatizálási szakértő és Sakk oktató. React és modern webes megoldások."
                 schema={{
                     "@context": "https://schema.org",
                     "@type": "Person",
