@@ -53,8 +53,8 @@ export const translations = {
                 studentsLabel: "Active Adventurers",
                 locations: "3",
                 locationsLabel: "Permanent Islands",
-                experience: "64",
-                experienceLabel: "Squares on Board",
+                experience: "5+",
+                experienceLabel: "Years Experience",
                 quote: "\"Play is the highest form of research.\""
             },
             characters: {
@@ -332,8 +332,8 @@ export const translations = {
                 studentsLabel: "Aktív Kalandozó",
                 locations: "3",
                 locationsLabel: "Állandó Sziget",
-                experience: "64",
-                experienceLabel: "Mező a táblán",
+                experience: "5+",
+                experienceLabel: "Év tapasztalat",
                 quote: "\"A játék a legmagasabb rendű kutatás.\""
             },
             characters: {
