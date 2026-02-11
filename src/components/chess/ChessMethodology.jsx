@@ -1,6 +1,6 @@
 import React from 'react';
 import { useLanguage } from '../../context/LanguageContext';
-import { Brain, Target, Handshake } from 'lucide-react';
+import { Map, Hourglass, Lightbulb } from 'lucide-react';
 
 const ChessMethodology = () => {
     const { t } = useLanguage();
@@ -8,7 +8,7 @@ const ChessMethodology = () => {
     const method = chess.methodology || {};
     const cards = method.cards || [];
 
-    const icons = [Brain, Target, Handshake];
+    const icons = [Map, Hourglass, Lightbulb];
 
     return (
         <section id="methodology" className="section" style={styles.section}>

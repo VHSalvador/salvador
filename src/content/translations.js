@@ -20,77 +20,114 @@ export const translations = {
             nav: {
                 title: "Salvador Chess",
                 backToPortfolio: "Back to Portfolio",
-                methodology: "Methodology",
-                details: "Details",
+                methodology: "Chess Island",
+                details: "Characters",
                 contact: "Contact"
             },
             hero: {
                 headline: "Where the pieces come to life.",
-                subheadline: "Helping kids develop logic and patience where they feel best: in kindergarten.",
+                subheadline: "A journey on Chess Island, where every piece is a lesson in life, patience, and strategy. Discover the secret of the Tree of Balance!",
                 ctaPrimary: "Free Trial Lesson",
-                ctaSecondary: "View Groups"
+                ctaSecondary: "Meet the Inhabitants"
             },
             methodology: {
-                title: "The \"Story Method\" Methodology",
-                quote: "\"In our lessons, the Knight isn't just a piece, but a friend trying to find his way home.\"",
+                title: "Journey on Chess Island",
+                quote: "\"Those creatures can live here happily who learn balance. Who know when to go forward, when to stop, and when to choose another path.\"",
                 cards: [
                     {
-                        title: "Logical Deduction",
-                        desc: "We learn cause-and-effect relationships and the consequences of moves."
+                        title: "Logic and Cause & Effect",
+                        desc: "Just as Brave Ben goes step by step, we learn that every action has a consequence."
                     },
                     {
-                        title: "Concentration and Patience",
-                        desc: "The game requires immersion, which develops children's ability to focus."
+                        title: "Self-Control and Patience",
+                        desc: "We slow down with Wise William: speed doesn't matter as much as a thoughtful decision."
                     },
                     {
-                        title: "Sportsmanship and Respect",
-                        desc: "We learn to win and lose, respecting the opponent and the rules."
+                        title: "Creative Problem Solving",
+                        desc: "Jumping Jack and Breezy Bella show that if you can't go straight, there's always another way."
                     }
                 ]
             },
             stats: {
                 students: "50+",
-                studentsLabel: "Active Students",
+                studentsLabel: "Active Adventurers",
                 locations: "3",
-                locationsLabel: "Permanent Locations",
-                experience: "5+",
-                experienceLabel: "Years Experience",
+                locationsLabel: "Permanent Islands",
+                experience: "64",
+                experienceLabel: "Squares on Board",
                 quote: "\"Play is the highest form of research.\""
             },
-            pricing: {
-                title: "Monthly Passes",
-                detailsTitle: "Details & Pricing",
-                detailsSubtitle: "Transparent conditions, no hidden costs.",
-                cards: [
+            characters: {
+                title: "Meet the Inhabitants!",
+                subtitle: "Six special characters, six important lessons for your child.",
+                items: [
                     {
-                        title: "Kindergarten Pass",
-                        price: "9,000 HUF / month",
-                        features: [
-                            "4 sessions per month",
-                            "30-min playful lessons",
-                            "Small groups (8-14 kids)",
-                            "Personalized attention"
-                        ]
+                        name: "Brave Ben",
+                        role: "Pawn",
+                        description: "Small, but his dreams are big. He teaches perseverance: if you go step by step, you can become anyone!",
+                        icon: "🌱",
+                        color: "#4CAF50"
                     },
                     {
-                        title: "School Pass",
-                        price: "11,000 HUF / month",
-                        features: [
-                            "4 sessions per month",
-                            "45-min intensive lessons",
-                            "Individual or small group",
-                            "Tournament prep & strategy"
-                        ]
+                        name: "Straight Stan",
+                        role: "Rook",
+                        description: "Never turns, always honest. The model of reliability and straight talk.",
+                        icon: "🏰",
+                        color: "#795548"
+                    },
+                    {
+                        name: "Breezy Bella",
+                        role: "Bishop",
+                        description: "Dances in the wind, moves diagonally. Teaches creativity and flexibility: sometimes you need to look from a different angle.",
+                        icon: "🌪️",
+                        color: "#9C27B0"
+                    },
+                    {
+                        name: "Jumping Jack",
+                        role: "Knight",
+                        description: "The lightning-fast jump champion. Master of unconventional solutions who jumps over every obstacle.",
+                        icon: "🐎",
+                        color: "#FF9800"
+                    },
+                    {
+                        name: "Protector Paula",
+                        role: "Queen",
+                        description: "Watches everywhere, protects everyone. The embodiment of empathy and responsible care.",
+                        icon: "☀️",
+                        color: "#FFC107"
+                    },
+                    {
+                        name: "Wise William",
+                        role: "King",
+                        description: "Moves slowly but surely. Teaches patience and thoughtfulness: every decision counts.",
+                        icon: "🌳",
+                        color: "#3F51B5"
+                    }
+                ]
+            },
+            instructors: {
+                title: "Who Guides the Adventure?",
+                subtitle: "Experienced mentors who speak the language of children.",
+                items: [
+                    {
+                        name: "Salvador Villarroel",
+                        role: "Head Coach & Storyteller",
+                        description: "Founder of the 'Story Method'. He believes that every move on the chessboard tells a story. His goal is to make children fall in love with thinking through tales, helping them find confidence both in the game and in life."
+                    },
+                    {
+                        name: "Milán",
+                        role: "Mentor & Strategist",
+                        description: "The master of patience and precision. With his calm and supportive presence, he ensures that every little adventurer finds their own path on Chess Island, whether it's understanding the rules or mastering a tricky checkmate."
                     }
                 ]
             },
             contact: {
-                headline: "Let's start the game!",
-                nameLabel: "Name",
+                headline: "Let's start the adventure!",
+                nameLabel: "Parent's Name",
                 emailLabel: "Email Address",
-                kindergartenLabel: "Kindergarten Name (Optional)",
-                messageLabel: "Message",
-                submitBtn: "Send Message"
+                kindergartenLabel: "Kindergarten Name / Child's Age",
+                messageLabel: "How can we help?",
+                submitBtn: "Request Free Trial Lesson"
             },
             footer: {
                 copyright: "Salvador Chess © 2026. All rights reserved.",
@@ -247,7 +284,7 @@ export const translations = {
             work: "Munka",
             funFacts: "Szenvedélyek & Érdeklődés",
             contact: "Kapcsolat",
-            chessCoaching: "Sakk Oktatás"
+            chessCoaching: "Sakksziget"
         },
         hero: {
             tagline: "KÍVÁNCSI ELME, ALKALMAZKODÓ SZELLEM",
@@ -262,77 +299,114 @@ export const translations = {
             nav: {
                 title: "Salvador Chess",
                 backToPortfolio: "Vissza a szakmai portfólióra",
-                methodology: "Módszertan",
-                details: "Részletek",
+                methodology: "Sakk-sziget",
+                details: "Karakterek",
                 contact: "Kapcsolat"
             },
             hero: {
                 headline: "Ahol a bábuk életre kelnek.",
-                subheadline: "Fejlesztjük a logikát, a türelmet és a stratégiai gondolkodást ott, ahol a gyerekek a legjobban érzik magukat: az óvodában.",
+                subheadline: "Utazás a Sakk-szigeten, ahol minden figura egy lecke az életről, a türelemről és a stratégiáról. Fedezd fel az Egyensúly Fájának titkát!",
                 ctaPrimary: "Ingyenes bemutató órát kérek",
-                ctaSecondary: "Csoportok megtekintése"
+                ctaSecondary: "Ismerd meg a lakókat"
             },
             methodology: {
-                title: "A \"Story Method\" módszertan",
-                quote: "\"Nálunk a Huszár nem csak egy bábu, hanem egy barát, aki haza akar találni.\"",
+                title: "Utazás a Sakk-szigeten",
+                quote: "\"Azok a lények élhetnek itt boldogan, akik megtanulják az egyensúlyt. Akik tudják, mikor menjenek előre, mikor álljanak meg, és mikor válasszanak másik utat.\"",
                 cards: [
                     {
-                        title: "Logikai következtetés",
-                        desc: "Megtanuljuk az ok-okozati összefüggéseket és a lépések következményeit."
+                        title: "Logika és Ok-okozat",
+                        desc: "Ahogy Bátor Bence lépésről lépésre halad, úgy tanuljuk meg, hogy minden tettünknek következménye van."
                     },
                     {
-                        title: "Koncentráció és türelem",
-                        desc: "A játék elmélyülést igényel, ami fejleszti a gyerekek fókuszálási képességét."
+                        title: "Önkontroll és Türelem",
+                        desc: "Bölcs Balázzsal lassítunk: nem a sebesség számít, hanem a megfontolt döntés."
                     },
                     {
-                        title: "Sportszerűség és tisztelet",
-                        desc: "Megtanulunk győzni és veszíteni, tisztelve az ellenfelet és a szabályokat."
+                        title: "Kreatív Problémamegoldás",
+                        desc: "Hoppsza Huba és Szellő Szonja megmutatják, hogy ha egyenesen nem megy, mindig van másik út."
                     }
                 ]
             },
             stats: {
                 students: "50+",
-                studentsLabel: "Aktív tanítvány",
+                studentsLabel: "Aktív Kalandozó",
                 locations: "3",
-                locationsLabel: "Állandó helyszín",
-                experience: "5+",
-                experienceLabel: "Év tapasztalat",
+                locationsLabel: "Állandó Sziget",
+                experience: "64",
+                experienceLabel: "Mező a táblán",
                 quote: "\"A játék a legmagasabb rendű kutatás.\""
             },
-            pricing: {
-                title: "Havi Bérletek",
-                detailsTitle: "Részletek és Árazás",
-                detailsSubtitle: "Átlátható feltételek, rejtett költségek nélkül.",
-                cards: [
+            characters: {
+                title: "Ismerd meg a Sziget lakóit!",
+                subtitle: "Hat különleges karakter, hat fontos lecke a gyermekednek.",
+                items: [
                     {
-                        title: "Havi bérlet ovisoknak",
-                        price: "9.000 Ft / hó",
-                        features: [
-                            "4 alkalom havonta",
-                            "30 perces játékos órák",
-                            "Kiscsoportos foglalkozás (8-14 fő)",
-                            "Személyre szabott figyelem"
-                        ]
+                        name: "Bátor Bence",
+                        role: "Gyalog",
+                        description: "Kicsi, de álmai nagyok. Megtanít a kitartásra: ha lépésről lépésre haladsz, bárkivé válhatsz!",
+                        icon: "🌱",
+                        color: "#4CAF50"
                     },
                     {
-                        title: "Havi bérlet iskolásoknak",
-                        price: "11.000 Ft / hó",
-                        features: [
-                            "4 alkalom havonta",
-                            "45 perces intenzív órák",
-                            "Egyéni vagy kiscsoportos fókusz",
-                            "Versenyfelkészítés és stratégia"
-                        ]
+                        name: "Egyenes Ernő",
+                        role: "Bástya",
+                        description: "Sosem kanyarog, mindig őszinte. A megbízhatóság és az egyenes beszéd mintaképe.",
+                        icon: "🏰",
+                        color: "#795548"
+                    },
+                    {
+                        name: "Szellő Szonja",
+                        role: "Futó",
+                        description: "A szélben táncol, ferdén jár. A kreativitást és a rugalmasságot tanítja: néha más szemszögből kell nézni a dolgokat.",
+                        icon: "🌪️",
+                        color: "#9C27B0"
+                    },
+                    {
+                        name: "Hoppsza Huba",
+                        role: "Huszár",
+                        description: "A villámgyors ugróbajnok. Rendhagyó megoldások mestere, aki minden akadályon átugrik.",
+                        icon: "🐎",
+                        color: "#FF9800"
+                    },
+                    {
+                        name: "Védelmező Vanda",
+                        role: "Vezér",
+                        description: "Minden irányba figyel, mindenkit óv. Az empátia és a felelősségteljes gondoskodás megtestesítője.",
+                        icon: "☀️",
+                        color: "#FFC107"
+                    },
+                    {
+                        name: "Bölcs Balázs",
+                        role: "Király",
+                        description: "Lassan jár, de biztosan. A türelemre és a megfontoltságra tanít: minden döntés számít.",
+                        icon: "🌳",
+                        color: "#3F51B5"
+                    }
+                ]
+            },
+            instructors: {
+                title: "Akik a kalandot vezetik",
+                subtitle: "Tapasztalt mentorok, akik értik a gyerekek nyelvét.",
+                items: [
+                    {
+                        name: "Salvador Villarroel",
+                        role: "Vezetőedző & Mesemondó",
+                        description: "A \"Story Method\" megalkotója. Hisz abban, hogy a sakktáblán minden lépés egy történet. Célja, hogy meséken keresztül szerettesse meg a gondolkodást, önbizalmat adva a gyerekeknek a játékban és az életben is."
+                    },
+                    {
+                        name: "Milán",
+                        role: "Mentor & Stratéga",
+                        description: "A türelem és a precizitás mestere. Nyugodt, támogató jelenlétével biztosítja, hogy minden kis kalandozó megtalálja a saját útját a Sakk-szigeten, legyen szó a szabályok megértéséről vagy egy cseles mattadásról."
                     }
                 ]
             },
             contact: {
-                headline: "Kezdjük el a közös játékot!",
-                nameLabel: "Név",
+                headline: "Kezdjük el a közös kalandot!",
+                nameLabel: "Szülő Neve",
                 emailLabel: "E-mail cím",
-                kindergartenLabel: "Óvoda neve (opcionális)",
-                messageLabel: "Üzenet",
-                submitBtn: "Üzenet küldése"
+                kindergartenLabel: "Óvoda neve / Gyermek kora",
+                messageLabel: "Miben segíthetünk?",
+                submitBtn: "Ingyenes próbaóra kérése"
             },
             footer: {
                 copyright: "Salvador Chess © 2026. Minden jog fenntartva.",

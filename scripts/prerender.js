@@ -90,7 +90,30 @@ async function prerender() {
 }
 
 async function savePage(page, relativePath) {
-    const content = await page.content();
+    let content = await page.content();
+
+    // Inline Critical CSS
+    // Regex to find the main stylesheet link. It typically looks like: <link rel="stylesheet" crossorigin="" href="/salvador/assets/index-BuLEJhDe.css">
+    const cssMatch = content.match(/<link\s+rel="stylesheet"\s+[^>]*href="([^"]+)"[^>]*>/);
+    if (cssMatch) {
+        const cssHref = cssMatch[1]; // e.g., /salvador/assets/index-BuLEJhDe.css
+        const cssFileName = cssHref.split('/').pop();
+        const cssFilePath = path.join(DIST_DIR, 'assets', cssFileName);
+
+        if (fs.existsSync(cssFilePath)) {
+            try {
+                const cssContent = fs.readFileSync(cssFilePath, 'utf-8');
+                // Replace the link tag with the inline style
+                content = content.replace(cssMatch[0], `<style>${cssContent}</style>`);
+                console.log(`💉 Inlined CSS from ${cssFileName} into ${relativePath}`);
+            } catch (err) {
+                console.error(`⚠️ Failed to read CSS file for inlining: ${err.message}`);
+            }
+        } else {
+            console.warn(`⚠️ Could not find CSS file to inline: ${cssFilePath}`);
+        }
+    }
+
     const filePath = path.join(DIST_DIR, relativePath);
     const dirPath = path.dirname(filePath);
 

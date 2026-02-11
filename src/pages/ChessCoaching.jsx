@@ -3,7 +3,8 @@ import Navbar from '../components/Navbar';
 import ChessHero from '../components/chess/ChessHero';
 import ChessMethodology from '../components/chess/ChessMethodology';
 import ChessStats from '../components/chess/ChessStats';
-import ChessPricing from '../components/chess/ChessPricing';
+import ChessCharacters from '../components/chess/ChessCharacters';
+import ChessInstructors from '../components/chess/ChessInstructors';
 import ChessContact from '../components/chess/ChessContact';
 import ChessFooter from '../components/chess/ChessFooter';
 import SEO from '../components/SEO';
@@ -89,8 +90,9 @@ const ChessCoaching = () => {
             <main>
                 <ChessHero />
                 <ChessMethodology />
+                <ChessInstructors />
                 <ChessStats />
-                <ChessPricing />
+                <ChessCharacters />
                 <ChessContact />
             </main>
             <ChessFooter />

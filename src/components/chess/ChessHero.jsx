@@ -21,7 +21,7 @@ const ChessHero = () => {
                     <p style={styles.subtitle}>{subheadline}</p>
                     <div style={styles.btnGroup}>
                         <a href="#contact" className="btn" style={styles.btnPrimary}>{ctaPrimary}</a>
-                        <a href="#details" className="btn" style={styles.btnSecondary}>{ctaSecondary}</a>
+                        <a href="#characters" className="btn" style={styles.btnSecondary}>{ctaSecondary}</a>
                     </div>
                 </div>
                 <div style={styles.imageContainer}>
