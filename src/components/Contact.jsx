@@ -12,6 +12,7 @@ const Contact = () => {
     const [selectedTime, setSelectedTime] = useState(null);
     const [formData, setFormData] = useState({ name: '', email: '' });
     const [bookingStatus, setBookingStatus] = useState(null); // null, 'submitting', 'success', 'error'
+    const [formErrors, setFormErrors] = useState({});
     const [bookedSlots, setBookedSlots] = useState(() => {
         if (typeof window !== 'undefined') {
             const saved = localStorage.getItem('bookedSlots');
@@ -73,11 +74,16 @@ const Contact = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        if (!selectedDate || !selectedTime || !formData.name || !formData.email) {
-            alert('Please fill in all fields and select a date/time.');
+
+        const errors = {};
+        if (!selectedDate || !selectedTime) errors.datetime = content.form.errorDatetime;
+        if (!formData.name.trim()) errors.name = content.form.errorName;
+        if (!formData.email.trim()) errors.email = content.form.errorEmail;
+        if (Object.keys(errors).length > 0) {
+            setFormErrors(errors);
             return;
         }
-
+        setFormErrors({});
         setBookingStatus('submitting');
 
         const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
@@ -87,15 +93,14 @@ const Contact = () => {
 
         if (!serviceId || !templateId || !publicKey || !confirmationTemplateId) {
             console.error('EmailJS environment variables are missing.');
-            alert('System Error: Email configuration is missing. Please check .env file.');
+            setFormErrors({ submit: content.form.errorSubmit });
             setBookingStatus('error');
             return;
         }
 
-        // Check for placeholder values
         if (serviceId.includes('your_service_id') || serviceId.includes('az_te_service_id') ||
             templateId.includes('template_id') || publicKey.includes('public_key')) {
-            alert('Configuration Error: It looks like you are using placeholder API keys. Please update your .env file with actual EmailJS credentials.');
+            setFormErrors({ submit: content.form.errorSubmit });
             setBookingStatus('error');
             return;
         }
@@ -146,8 +151,7 @@ const Contact = () => {
 
         } catch (error) {
             console.error('Failed to send email:', error);
-            const errorMessage = error.text || error.message || JSON.stringify(error);
-            alert(`Failed to send booking request. Error details: ${errorMessage}`);
+            setFormErrors({ submit: content.form.errorSubmit });
             setBookingStatus('error');
         }
     };
@@ -163,20 +167,20 @@ const Contact = () => {
 
                         <div style={styles.contactDetails}>
                             <div style={styles.contactItem}>
-                                <Phone size={24} color="#6aa8a0" />
+                                <Phone size={24} color="#6aa8a0" aria-hidden="true" />
                                 <span>{content.phone}</span>
                             </div>
                             <div style={styles.contactItem}>
-                                <Mail size={24} color="#6aa8a0" />
+                                <Mail size={24} color="#6aa8a0" aria-hidden="true" />
                                 <span>{content.email}</span>
                             </div>
                             <div style={styles.contactItem}>
-                                <Linkedin size={24} color="#6aa8a0" />
-                                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" style={styles.linkText}>{content.linkedin}</a>
+                                <Linkedin size={24} color="#6aa8a0" aria-hidden="true" />
+                                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" style={styles.linkText} aria-label="LinkedIn">{content.linkedin}</a>
                             </div>
                             <div style={styles.contactItem}>
-                                <Github size={24} color="#6aa8a0" />
-                                <a href="https://github.com" target="_blank" rel="noopener noreferrer" style={styles.linkText}>{content.github}</a>
+                                <Github size={24} color="#6aa8a0" aria-hidden="true" />
+                                <a href="https://github.com" target="_blank" rel="noopener noreferrer" style={styles.linkText} aria-label="GitHub">{content.github}</a>
                             </div>
                         </div>
                     </div>
@@ -211,9 +215,12 @@ const Contact = () => {
                                                     const isToday = date.toDateString() === new Date().toDateString();
 
                                                     return (
-                                                        <div
+                                                        <button
                                                             key={d}
+                                                            type="button"
                                                             onClick={() => handleDateClick(d)}
+                                                            aria-label={date.toLocaleDateString('default', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}
+                                                            aria-pressed={isSelected}
                                                             style={{
                                                                 ...styles.calDay,
                                                                 ...(isSelected ? styles.calDayActive : {}),
@@ -221,7 +228,7 @@ const Contact = () => {
                                                             }}
                                                         >
                                                             {d}
-                                                        </div>
+                                                        </button>
                                                     );
                                                 })}
                                             </div>
@@ -230,6 +237,7 @@ const Contact = () => {
 
                                     {/* Inputs Column */}
                                     <div style={styles.inputsCol}>
+                                        {formErrors.datetime && <p style={styles.errorMsg}>{formErrors.datetime}</p>}
                                         {selectedDate && (
                                             <div style={styles.timeSlots}>
                                                 <label style={styles.label}>{content.form.availableTimes} ({selectedDate.toLocaleDateString()})</label>
@@ -257,27 +265,36 @@ const Contact = () => {
                                         )}
 
                                         <div style={styles.inputGroup}>
-                                            <label style={styles.label}>{content.form.nameLabel}</label>
+                                            <label htmlFor="booking-name" style={styles.label}>{content.form.nameLabel}</label>
                                             <input
+                                                id="booking-name"
                                                 type="text"
                                                 placeholder={content.form.namePlaceholder}
                                                 style={styles.input}
                                                 value={formData.name}
                                                 onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                                                aria-invalid={!!formErrors.name}
+                                                aria-describedby={formErrors.name ? 'error-name' : undefined}
                                             />
+                                            {formErrors.name && <p id="error-name" style={styles.errorMsg}>{formErrors.name}</p>}
                                         </div>
                                         <div style={styles.inputGroup}>
-                                            <label style={styles.label}>{content.form.emailLabel}</label>
+                                            <label htmlFor="booking-email" style={styles.label}>{content.form.emailLabel}</label>
                                             <input
+                                                id="booking-email"
                                                 type="email"
                                                 placeholder={content.form.emailPlaceholder}
                                                 style={styles.input}
                                                 value={formData.email}
                                                 onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                                                aria-invalid={!!formErrors.email}
+                                                aria-describedby={formErrors.email ? 'error-email' : undefined}
                                             />
+                                            {formErrors.email && <p id="error-email" style={styles.errorMsg}>{formErrors.email}</p>}
                                         </div>
                                     </div>
                                 </div>
+                                {formErrors.submit && <p style={styles.errorMsg}>{formErrors.submit}</p>}
                                 <button style={styles.btn} onClick={handleSubmit} disabled={bookingStatus === 'submitting'}>
                                     {bookingStatus === 'submitting' ? 'Scheduling...' : content.form.btn}
                                 </button>
@@ -373,6 +390,12 @@ const styles = {
         cursor: 'pointer',
         borderRadius: '8px',
         transition: 'background 0.2s',
+        border: 'none',
+        background: 'transparent',
+        width: '100%',
+        fontFamily: 'inherit',
+        fontSize: 'inherit',
+        color: 'inherit',
     },
     calDayActive: {
         backgroundColor: '#5A7D8F',
@@ -445,6 +468,11 @@ const styles = {
         textAlign: 'center',
         padding: '2rem',
         color: '#333',
+    },
+    errorMsg: {
+        color: '#c0392b',
+        fontSize: '0.8rem',
+        marginTop: '0.4rem',
     }
 };
 

@@ -89,7 +89,11 @@ export const translations = {
                 emailLabel: "Email *",
                 emailPlaceholder: "Enter your email address",
                 btn: "Schedule Call",
-                availableTimes: "Available Times"
+                availableTimes: "Available Times",
+                errorName: "Please enter your name.",
+                errorEmail: "Please enter your email address.",
+                errorDatetime: "Please select a date and time.",
+                errorSubmit: "Failed to send booking request. Please try again later."
             },
             weekDays: ['Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa', 'Su'],
         },
@@ -248,7 +252,11 @@ export const translations = {
                 emailLabel: "Email *",
                 emailPlaceholder: "Add meg az email címed",
                 btn: "Hívás Ütemezése",
-                availableTimes: "Elérhető Időpontok"
+                availableTimes: "Elérhető Időpontok",
+                errorName: "Kérjük, add meg a neved.",
+                errorEmail: "Kérjük, add meg az email címed.",
+                errorDatetime: "Kérjük, válassz dátumot és időpontot.",
+                errorSubmit: "Nem sikerült elküldeni a foglalást. Kérjük, próbáld újra."
             },
             weekDays: ['H', 'K', 'Sz', 'Cs', 'P', 'Sz', 'V'],
         },

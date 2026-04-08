@@ -27,13 +27,13 @@ Scoring baseline from audit (2026-04-08). Target: 10/10 on all five axes.
 
 ## 3. Accessibility / A11y (5 → 10)
 
-- [ ] **P1** Fix color contrast — `--color-text-primary: #6B8C9E` on `--color-bg: #F3F3E9` is ~3.5:1, fails WCAG AA. Darken to at least `#4F6E80` or adjust background
-- [ ] **P1** Add `id`/`htmlFor` pairing to all form inputs in `Contact.jsx` — currently labels and inputs are visually paired but not semantically linked
-- [ ] **P1** Replace `alert()` calls in `Contact.jsx` — use inline error state rendered in the UI with specific per-field messages
-- [ ] **P1** Convert calendar day `<div>` cells to `<button>` elements in `Contact.jsx` — currently unreachable by keyboard and invisible to screen readers
-- [ ] **P2** Add `:focus-visible` styles to `src/index.css` for all interactive elements (links, buttons, inputs) — keyboard users currently have no visible focus indicator
-- [ ] **P2** Add `aria-label` to social icon links in `Contact.jsx` (Phone, Mail, LinkedIn, GitHub icons have no text alternative)
-- [ ] **P2** Sanitize the catch block error message in `Contact.jsx` — currently exposes raw API error strings to the user
+- [x] **P1** Fix color contrast — `--color-text-primary: #6B8C9E` on `--color-bg: #F3F3E9` is ~3.5:1, fails WCAG AA. Darken to at least `#4F6E80` or adjust background
+- [x] **P1** Add `id`/`htmlFor` pairing to all form inputs in `Contact.jsx` — currently labels and inputs are visually paired but not semantically linked
+- [x] **P1** Replace `alert()` calls in `Contact.jsx` — use inline error state rendered in the UI with specific per-field messages
+- [x] **P1** Convert calendar day `<div>` cells to `<button>` elements in `Contact.jsx` — currently unreachable by keyboard and invisible to screen readers
+- [x] **P2** Add `:focus-visible` styles to `src/index.css` for all interactive elements (links, buttons, inputs) — keyboard users currently have no visible focus indicator
+- [x] **P2** Add `aria-label` to social icon links in `Contact.jsx` (Phone, Mail, LinkedIn, GitHub icons have no text alternative)
+- [x] **P2** Sanitize the catch block error message in `Contact.jsx` — currently exposes raw API error strings to the user
 
 ---
 
