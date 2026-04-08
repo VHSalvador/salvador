@@ -39,11 +39,11 @@ Scoring baseline from audit (2026-04-08). Target: 10/10 on all five axes.
 
 ## 4. User Experience / UX (7 → 10)
 
-- [ ] **P1** Fix LinkedIn and GitHub links in `Contact.jsx` — currently point to `https://linkedin.com` and `https://github.com`; update to actual profile URLs
-- [ ] **P1** Add `prefers-color-scheme: dark` media query to `src/index.css` with a dark palette — no dark mode currently exists
-- [ ] **P2** Improve mobile calendar UX in `Contact.jsx` — on small screens the two-column form grid (calendar + inputs) is cramped; collapse to single column earlier or redesign the time-picker for mobile
-- [ ] **P2** Add Google Analytics (shared with Performance P2 above)
-- [ ] **P3** Add a `#work` anchor to the correct section in `Home.jsx` — the Navbar links to `#work` but no section has that id
+- [x] **P1** Fix LinkedIn and GitHub links in `Contact.jsx` — updated to `https://linkedin.com/in/salvador-villarroel` and `https://github.com/VHSalvador`
+- [x] **P1** Add `prefers-color-scheme: dark` media query to `src/index.css` with a dark palette — warm dark palette added
+- [x] **P2** Improve mobile calendar UX in `Contact.jsx` — contact-form-grid collapses to 1 column at 900px (was 768px)
+- [x] **P2** Add Google Analytics (shared with Performance P2 above)
+- [x] **P3** Add a `#work` anchor to the correct section — `Experience.jsx` already had `id="work"` on the section
 
 ---
 
