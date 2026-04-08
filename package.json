@@ -1,6 +1,6 @@
 {
   "name": "portfolio-clone",
-  "homepage": "https://VHSalvador.github.io/salvador/",
+  "homepage": "https://yourdomain.hu",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -9,7 +9,7 @@
     "build": "vite build && (node scripts/prerender.js || true) && node scripts/generate-sitemap.js",
     "lint": "eslint .",
     "preview": "vite preview",
-    "predeploy": "npm run build",
+    "predeploy": "VITE_BASE_PATH=/salvador/ npm run build",
     "deploy": "gh-pages -d dist"
   },
   "dependencies": {

@@ -20,7 +20,7 @@ const asyncCssPlugin = {
 // https://vite.dev/config/
 export default defineConfig(({ command }) => ({
   plugins: [react(), asyncCssPlugin],
-  base: "/salvador/",
+  base: process.env.VITE_BASE_PATH ?? "/",
   server: {
     host: '0.0.0.0'
   },

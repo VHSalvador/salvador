@@ -12,7 +12,7 @@ const ROUTES = [
     { path: '/', file: 'index.html' },
 ];
 const PORT = 4173;
-const BASE_URL = `http://localhost:${PORT}/salvador/`;
+const BASE_URL = `http://localhost:${PORT}${process.env.VITE_BASE_PATH ?? '/'}`;
 
 async function prerender() {
     console.log('🚀 Starting Prerendering (Crawling Mode)...');
