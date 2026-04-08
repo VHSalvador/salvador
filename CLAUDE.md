@@ -61,4 +61,4 @@ Non-obvious approaches confirmed to work — repeat these.
 <!-- Format: - [date] What was done → why it worked -->
 - [2026-04-08] Dark mode via `[data-theme="dark"]` on `<html>` + manual toggle in Navbar. ThemeContext exports `getInitialTheme()` which is called synchronously in `main.jsx` before `createRoot` to prevent FOUC. First-time visitors get OS preference via `matchMedia`; returning visitors get their saved choice from `localStorage`.
 - [2026-04-08] Social links (LinkedIn/GitHub) exist in 3 places: Contact.jsx, Footer.jsx, Home.jsx JSON-LD schema. Keep all 3 in sync when updating profile URLs.
-- [2026-04-08] Social links (LinkedIn/GitHub) exist in 3 places: Contact.jsx, Footer.jsx, Home.jsx JSON-LD schema. Keep all 3 in sync when updating profile URLs.
+- [2026-04-08] `public/_headers` ships in `dist/` via Vite's public dir copy. GitHub Pages does not enforce it natively — it is there for future CDN/proxy adoption and documents the intended CSP. CSP allows: self, GA4 (googletagmanager + google-analytics), EmailJS API (`api.emailjs.com`), self-hosted fonts. `unsafe-inline` in script-src is required for the GA4 inline gtag snippet.
