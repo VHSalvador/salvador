@@ -42,9 +42,20 @@ Avoid reading the full component tree unless the task spans multiple components.
 - `npm install` if `node_modules` is missing (use `--legacy-peer-deps` if needed)
 - `npm run build` to verify — the Puppeteer prerender step fails in WSL (missing Chrome libs), that is expected and not a code error; the Vite build passing is sufficient
 - Commit all changes, then `git push origin main`
+- `npm run deploy` to push `dist/` to `gh-pages` and update the live GitHub Pages site
 
 ## Do not
 - Add features not requested
 - Add comments or docstrings to code you didn't change
 - Hardcode text strings — use translations.js
 - Touch `chess-site/`
+
+## Failure log
+Things tried in past sessions that didn't work — don't repeat them.
+
+<!-- Format: - [date] What was tried → why it failed -->
+
+## Success log
+Non-obvious approaches confirmed to work — repeat these.
+
+<!-- Format: - [date] What was done → why it worked -->

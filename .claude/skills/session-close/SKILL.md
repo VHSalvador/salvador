@@ -1,8 +1,8 @@
 ---
 name: session-close
-description: Run the end-of-session checklist for this project — verify build passes, commit all changes, and push to origin main. Use at the end of every working session.
+description: Run the end-of-session checklist for this project — verify build passes, commit all changes, push to origin main, and deploy to GitHub Pages. Use at the end of every working session.
 disable-model-invocation: true
-allowed-tools: Bash(npm run build), Bash(git status), Bash(git diff), Bash(git log*), Bash(git add*), Bash(git commit*), Bash(git push*)
+allowed-tools: Bash(npm run build), Bash(npm run deploy), Bash(git status), Bash(git diff), Bash(git log*), Bash(git add*), Bash(git commit*), Bash(git push*)
 ---
 
 # Session Close Checklist
@@ -17,7 +17,16 @@ npm run build
 
 The Puppeteer prerender step will fail in WSL (missing Chrome libs) — that is expected and not an error. What matters is that the Vite build itself passes. If Vite errors, stop here and fix before proceeding.
 
-## Step 2 — Check working tree
+## Step 2 — Update CLAUDE.md session logs
+
+Before committing, append any reusable learnings from this session to the relevant log in `CLAUDE.md`:
+
+- **Failures log** (`## Failure log` section): anything that was tried and didn't work — wrong approaches, incorrect assumptions, patterns that broke things. Write one bullet per item: what was tried and why it failed. Only record things that could plausibly be tried again.
+- **Successes log** (`## Success log` section): non-obvious approaches that worked well and should be repeated. Skip obvious things. One bullet per item: what was done and why it worked.
+
+If there is nothing new to add, skip this step. Do not pad with trivial entries.
+
+## Step 3 — Check working tree
 
 ```bash
 git status
@@ -26,7 +35,7 @@ git diff
 
 Summarise what is staged/unstaged so the commit message is accurate.
 
-## Step 3 — Stage and commit
+## Step 4 — Stage and commit
 
 Stage only source files (never `.env`, secrets, or large binaries):
 
@@ -47,12 +56,20 @@ EOF
 
 Use these types: `feat`, `fix`, `perf`, `refactor`, `chore`, `docs`, `style`.
 
-## Step 4 — Push
+## Step 5 — Push
 
 ```bash
 git push origin main
 ```
 
+## Step 6 — Deploy to GitHub Pages
+
+```bash
+npm run deploy
+```
+
+This builds the project and pushes `dist/` to the `gh-pages` branch. The Puppeteer prerender failure is expected in WSL — the deploy still succeeds. GitHub Pages will reflect changes within a minute or two.
+
 ## Done
 
-Report the final git log line to confirm the push succeeded.
+Report the final git log line and confirm the deploy succeeded.
