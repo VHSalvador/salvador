@@ -59,3 +59,5 @@ Things tried in past sessions that didn't work — don't repeat them.
 Non-obvious approaches confirmed to work — repeat these.
 
 <!-- Format: - [date] What was done → why it worked -->
+- [2026-04-08] Dark mode via `@media (prefers-color-scheme: dark)` overriding `:root` CSS variables only — clean, no JS, no layout shift. Components using inline styles don't auto-inherit but that's acceptable.
+- [2026-04-08] Social links (LinkedIn/GitHub) exist in 3 places: Contact.jsx, Footer.jsx, Home.jsx JSON-LD schema. Keep all 3 in sync when updating profile URLs.
