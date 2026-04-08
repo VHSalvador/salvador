@@ -176,11 +176,11 @@ const Contact = () => {
                             </div>
                             <div style={styles.contactItem}>
                                 <Linkedin size={24} color="#6aa8a0" aria-hidden="true" />
-                                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" style={styles.linkText} aria-label="LinkedIn">{content.linkedin}</a>
+                                <a href="https://linkedin.com/in/salvador-villarroel" target="_blank" rel="noopener noreferrer" style={styles.linkText} aria-label="LinkedIn">{content.linkedin}</a>
                             </div>
                             <div style={styles.contactItem}>
                                 <Github size={24} color="#6aa8a0" aria-hidden="true" />
-                                <a href="https://github.com" target="_blank" rel="noopener noreferrer" style={styles.linkText} aria-label="GitHub">{content.github}</a>
+                                <a href="https://github.com/VHSalvador" target="_blank" rel="noopener noreferrer" style={styles.linkText} aria-label="GitHub">{content.github}</a>
                             </div>
                         </div>
                     </div>
