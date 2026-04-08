@@ -12,6 +12,8 @@ Run through this before ending any work session.
 - [ ] `git status` — no unintended files staged
 - [ ] Commit message describes *why*, not just *what*
 - [ ] If a new task was completed, mark it `[x]` in `TASKS.md`
+- [ ] `git push origin main` — always push at session close, even if not explicitly asked
+- [ ] Note: if push fails with auth error, remind user to configure SSH or PAT
 
 ## 3. Memory / handoff
 - [ ] Update `TASKS.md` — mark completed items, add any newly discovered issues

@@ -30,9 +30,18 @@ Avoid reading the full component tree unless the task spans multiple components.
 
 ## Decisions already made
 - Chess removed from main site (routes, nav, translations stripped)
-- Images: WebP + responsive srcSet. PNGs in `public/img/` are dead weight — scheduled for removal.
+- Images: WebP + AVIF (quality 60) with `<picture>` — AVIF served first, WebP fallback. All PNG originals deleted.
+- Old `hero-profile.*` variants deleted; only `-new-` variants remain.
+- Favicon: `public/favicon.svg` (SV initials, brand colors). No `.ico` file.
+- GA4 snippet is in `index.html` with placeholder `G-XXXXXXXXXX` — waiting for Rackhost migration before activating.
+- Prerender step is non-fatal (`|| true`) in build script — Puppeteer/Chrome fails in WSL, expected.
 - Fonts self-hosted as woff2 with `font-display: swap`
 - Vite manual chunks: `vendor` (react stack) + `lucide`
+
+## Always do at session close
+- `npm install` if `node_modules` is missing (use `--legacy-peer-deps` if needed)
+- `npm run build` to verify — the Puppeteer prerender step fails in WSL (missing Chrome libs), that is expected and not a code error; the Vite build passing is sufficient
+- Commit all changes, then `git push origin main`
 
 ## Do not
 - Add features not requested
