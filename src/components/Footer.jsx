@@ -19,10 +19,10 @@ const Footer = () => {
             <div style={styles.footerMain}>
                 <div className="container" style={styles.container}>
                     <div style={styles.socialIcons}>
-                        <a href="https://github.com" target="_blank" rel="noopener noreferrer" style={styles.iconLink} aria-label="GitHub Profile">
+                        <a href="https://github.com/VHSalvador" target="_blank" rel="noopener noreferrer" style={styles.iconLink} aria-label="GitHub Profile">
                             <Github size={24} />
                         </a>
-                        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" style={styles.iconLink} aria-label="LinkedIn Profile">
+                        <a href="https://linkedin.com/in/salvador-villarroel" target="_blank" rel="noopener noreferrer" style={styles.iconLink} aria-label="LinkedIn Profile">
                             <Linkedin size={24} />
                         </a>
                         <a href={`mailto:salvador.vh05@gmail.com`} style={styles.iconLink} aria-label="Send Email">
