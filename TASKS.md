@@ -17,11 +17,11 @@ Scoring baseline from audit (2026-04-08). Target: 10/10 on all five axes.
 
 ## 2. Machine Experience / AI Readiness (6 → 10)
 
-- [ ] **P1** Fix `index.html` lang attribute — currently hardcoded `lang="en"`. Change to `lang="hu"` to match the default language, avoiding mismatch before React hydrates
-- [ ] **P1** Add semantic HTML wrappers — `<header>` around `<Navbar>`, `<footer>` around `<Footer>` in `src/pages/Home.jsx`; ensure sections use `<section>` with meaningful `id` attributes
-- [ ] **P2** Expand JSON-LD Person schema in `Home.jsx` — add `alumniOf` (Corvinus), `knowsLanguage` (Hungarian, English, Japanese), `hasOccupation` entries
-- [ ] **P2** Create `public/llms.txt` — emerging 2025/2026 convention; a plain-text summary of who Salvador is for AI crawlers
-- [ ] **P3** Verify sitemap URLs match deployed routes after chess removal — regenerate sitemap
+- [x] **P1** Fix `index.html` lang attribute — currently hardcoded `lang="en"`. Change to `lang="hu"` to match the default language, avoiding mismatch before React hydrates
+- [x] **P1** Add semantic HTML wrappers — `<header>` around `<Navbar>`, `<footer>` around `<Footer>` in `src/pages/Home.jsx`; ensure sections use `<section>` with meaningful `id` attributes
+- [x] **P2** Expand JSON-LD Person schema in `Home.jsx` — add `alumniOf` (Corvinus), `knowsLanguage` (Hungarian, English, Japanese), `hasOccupation` entries
+- [x] **P2** Create `public/llms.txt` — emerging 2025/2026 convention; a plain-text summary of who Salvador is for AI crawlers
+- [x] **P3** Verify sitemap URLs match deployed routes after chess removal — regenerate sitemap
 
 ---
 

@@ -23,7 +23,32 @@ const Home = () => {
                     "url": "https://vhsalvador.github.io/salvador/",
                     "image": "https://vhsalvador.github.io/salvador/img/hero-profile-new.jpg",
                     "jobTitle": "Full Stack Developer",
-                    "knowsAbout": ["React", "JavaScript", "Node.js", "Web Development", "Chess"],
+                    "knowsAbout": ["React", "JavaScript", "Node.js", "Web Development", "Chess", "AI Automation", "Community Management"],
+                    "alumniOf": {
+                        "@type": "CollegeOrUniversity",
+                        "name": "Corvinus University of Budapest",
+                        "url": "https://www.uni-corvinus.hu"
+                    },
+                    "knowsLanguage": [
+                        { "@type": "Language", "name": "Hungarian" },
+                        { "@type": "Language", "name": "English" },
+                        { "@type": "Language", "name": "Japanese" }
+                    ],
+                    "hasOccupation": [
+                        {
+                            "@type": "Occupation",
+                            "name": "Full Stack Developer",
+                            "occupationLocation": { "@type": "City", "name": "Budapest" }
+                        },
+                        {
+                            "@type": "Occupation",
+                            "name": "Chess Coach"
+                        },
+                        {
+                            "@type": "Occupation",
+                            "name": "AI Automation Specialist"
+                        }
+                    ],
                     "sameAs": [
                         "https://github.com/VHSalvador",
                         "https://linkedin.com/in/salvador-villarroel"
@@ -31,7 +56,9 @@ const Home = () => {
                 }}
                 image="/img/hero-profile-new.jpg"
             />
-            <Navbar />
+            <header>
+                <Navbar />
+            </header>
             <main>
                 <Hero />
                 <Stats />
@@ -41,7 +68,9 @@ const Home = () => {
                 <FunFacts />
                 <Contact />
             </main>
-            <Footer />
+            <footer>
+                <Footer />
+            </footer>
         </>
     );
 };

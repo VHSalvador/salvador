@@ -8,8 +8,7 @@ const __dirname = path.dirname(__filename);
 const SITE_URL = 'https://vhsalvador.github.io/salvador';
 
 const routes = [
-    { path: '/', changefreq: 'monthly', priority: '1.0' },
-    { path: '/chess-coaching', changefreq: 'weekly', priority: '0.8' }
+    { path: '/', changefreq: 'monthly', priority: '1.0' }
 ];
 
 const generateSitemap = () => {
