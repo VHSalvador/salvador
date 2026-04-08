@@ -5,7 +5,6 @@ export const translations = {
             work: "Work",
             funFacts: "Fun Facts",
             contact: "Contact",
-            chessCoaching: "Chess Coaching"
         },
         hero: {
             tagline: "CURIOUS MIND, ADAPTIVE SPIRIT",
@@ -15,124 +14,6 @@ export const translations = {
             btnTouch: "Get in Touch",
             quote: `"Salvador turned my fear of math into confidence during the teaching sessions. His teaching style makes everything click!"`,
             quoteAuthor: "— TOMI, HIGH SCHOOL STUDENT"
-        },
-        chess: {
-            nav: {
-                title: "Salvador Chess",
-                backToPortfolio: "Back to Portfolio",
-                methodology: "Chess Island",
-                details: "Characters",
-                contact: "Contact"
-            },
-            hero: {
-                headline: "Where the pieces come to life.",
-                subheadline: "A journey on Chess Island, where every piece is a lesson in life, patience, and strategy. Discover the secret of the Tree of Balance!",
-                ctaPrimary: "Free Trial Lesson",
-                ctaSecondary: "Meet the Inhabitants"
-            },
-            methodology: {
-                title: "Journey on Chess Island",
-                quote: "\"Those creatures can live here happily who learn balance. Who know when to go forward, when to stop, and when to choose another path.\"",
-                cards: [
-                    {
-                        title: "Logic and Cause & Effect",
-                        desc: "Just as Brave Ben goes step by step, we learn that every action has a consequence."
-                    },
-                    {
-                        title: "Self-Control and Patience",
-                        desc: "We slow down with Wise William: speed doesn't matter as much as a thoughtful decision."
-                    },
-                    {
-                        title: "Creative Problem Solving",
-                        desc: "Jumping Jack and Breezy Bella show that if you can't go straight, there's always another way."
-                    }
-                ]
-            },
-            stats: {
-                students: "50+",
-                studentsLabel: "Active Adventurers",
-                locations: "3",
-                locationsLabel: "Permanent Islands",
-                experience: "5+",
-                experienceLabel: "Years Experience",
-                quote: "\"Play is the highest form of research.\""
-            },
-            characters: {
-                title: "Meet the Inhabitants!",
-                subtitle: "Six special characters, six important lessons for your child.",
-                items: [
-                    {
-                        name: "Brave Ben",
-                        role: "Pawn",
-                        description: "Small, but his dreams are big. He teaches perseverance: if you go step by step, you can become anyone!",
-                        icon: "🌱",
-                        color: "#4CAF50"
-                    },
-                    {
-                        name: "Straight Stan",
-                        role: "Rook",
-                        description: "Never turns, always honest. The model of reliability and straight talk.",
-                        icon: "🏰",
-                        color: "#795548"
-                    },
-                    {
-                        name: "Breezy Bella",
-                        role: "Bishop",
-                        description: "Dances in the wind, moves diagonally. Teaches creativity and flexibility: sometimes you need to look from a different angle.",
-                        icon: "🌪️",
-                        color: "#9C27B0"
-                    },
-                    {
-                        name: "Jumping Jack",
-                        role: "Knight",
-                        description: "The lightning-fast jump champion. Master of unconventional solutions who jumps over every obstacle.",
-                        icon: "🐎",
-                        color: "#FF9800"
-                    },
-                    {
-                        name: "Protector Paula",
-                        role: "Queen",
-                        description: "Watches everywhere, protects everyone. The embodiment of empathy and responsible care.",
-                        icon: "☀️",
-                        color: "#FFC107"
-                    },
-                    {
-                        name: "Wise William",
-                        role: "King",
-                        description: "Moves slowly but surely. Teaches patience and thoughtfulness: every decision counts.",
-                        icon: "🌳",
-                        color: "#3F51B5"
-                    }
-                ]
-            },
-            instructors: {
-                title: "Who Guides the Adventure?",
-                subtitle: "Experienced mentors who speak the language of children.",
-                items: [
-                    {
-                        name: "Salvador Villarroel",
-                        role: "Head Coach & Storyteller",
-                        description: "Founder of the 'Story Method'. He believes that every move on the chessboard tells a story. His goal is to make children fall in love with thinking through tales, helping them find confidence both in the game and in life."
-                    },
-                    {
-                        name: "Milán",
-                        role: "Mentor & Strategist",
-                        description: "The master of patience and precision. With his calm and supportive presence, he ensures that every little adventurer finds their own path on Chess Island, whether it's understanding the rules or mastering a tricky checkmate."
-                    }
-                ]
-            },
-            contact: {
-                headline: "Let's start the adventure!",
-                nameLabel: "Parent's Name",
-                emailLabel: "Email Address",
-                kindergartenLabel: "Kindergarten Name / Child's Age",
-                messageLabel: "How can we help?",
-                submitBtn: "Request Free Trial Lesson"
-            },
-            footer: {
-                copyright: "Salvador Chess © 2026. All rights reserved.",
-                backToPortfolio: "Back to Professional Portfolio"
-            }
         },
         about: {
             title: "Who I Am",
@@ -284,7 +165,6 @@ export const translations = {
             work: "Munka",
             funFacts: "Szenvedélyek & Érdeklődés",
             contact: "Kapcsolat",
-            chessCoaching: "Sakksziget"
         },
         hero: {
             tagline: "KÍVÁNCSI ELME, ALKALMAZKODÓ SZELLEM",
@@ -294,124 +174,6 @@ export const translations = {
             btnTouch: "Lépj kapcsolatba",
             quote: `"Salvador a matematika iránti félelmemet önbizalommá változtatta az órák során. A tanítási stílusa mindent érthetővé tesz!"`,
             quoteAuthor: "— TOMI, KÖZÉPISKOLÁS DIÁK"
-        },
-        chess: {
-            nav: {
-                title: "Salvador Chess",
-                backToPortfolio: "Vissza a szakmai portfólióra",
-                methodology: "Sakk-sziget",
-                details: "Karakterek",
-                contact: "Kapcsolat"
-            },
-            hero: {
-                headline: "Ahol a bábuk életre kelnek.",
-                subheadline: "Utazás a Sakk-szigeten, ahol minden figura egy lecke az életről, a türelemről és a stratégiáról. Fedezd fel az Egyensúly Fájának titkát!",
-                ctaPrimary: "Ingyenes bemutató órát kérek",
-                ctaSecondary: "Ismerd meg a lakókat"
-            },
-            methodology: {
-                title: "Utazás a Sakk-szigeten",
-                quote: "\"Azok a lények élhetnek itt boldogan, akik megtanulják az egyensúlyt. Akik tudják, mikor menjenek előre, mikor álljanak meg, és mikor válasszanak másik utat.\"",
-                cards: [
-                    {
-                        title: "Logika és Ok-okozat",
-                        desc: "Ahogy Bátor Bence lépésről lépésre halad, úgy tanuljuk meg, hogy minden tettünknek következménye van."
-                    },
-                    {
-                        title: "Önkontroll és Türelem",
-                        desc: "Bölcs Balázzsal lassítunk: nem a sebesség számít, hanem a megfontolt döntés."
-                    },
-                    {
-                        title: "Kreatív Problémamegoldás",
-                        desc: "Hoppsza Huba és Szellő Szonja megmutatják, hogy ha egyenesen nem megy, mindig van másik út."
-                    }
-                ]
-            },
-            stats: {
-                students: "50+",
-                studentsLabel: "Aktív Kalandozó",
-                locations: "3",
-                locationsLabel: "Állandó Sziget",
-                experience: "5+",
-                experienceLabel: "Év tapasztalat",
-                quote: "\"A játék a legmagasabb rendű kutatás.\""
-            },
-            characters: {
-                title: "Ismerd meg a Sziget lakóit!",
-                subtitle: "Hat különleges karakter, hat fontos lecke a gyermekednek.",
-                items: [
-                    {
-                        name: "Bátor Bence",
-                        role: "Gyalog",
-                        description: "Kicsi, de álmai nagyok. Megtanít a kitartásra: ha lépésről lépésre haladsz, bárkivé válhatsz!",
-                        icon: "🌱",
-                        color: "#4CAF50"
-                    },
-                    {
-                        name: "Egyenes Ernő",
-                        role: "Bástya",
-                        description: "Sosem kanyarog, mindig őszinte. A megbízhatóság és az egyenes beszéd mintaképe.",
-                        icon: "🏰",
-                        color: "#795548"
-                    },
-                    {
-                        name: "Szellő Szonja",
-                        role: "Futó",
-                        description: "A szélben táncol, ferdén jár. A kreativitást és a rugalmasságot tanítja: néha más szemszögből kell nézni a dolgokat.",
-                        icon: "🌪️",
-                        color: "#9C27B0"
-                    },
-                    {
-                        name: "Hoppsza Huba",
-                        role: "Huszár",
-                        description: "A villámgyors ugróbajnok. Rendhagyó megoldások mestere, aki minden akadályon átugrik.",
-                        icon: "🐎",
-                        color: "#FF9800"
-                    },
-                    {
-                        name: "Védelmező Vanda",
-                        role: "Vezér",
-                        description: "Minden irányba figyel, mindenkit óv. Az empátia és a felelősségteljes gondoskodás megtestesítője.",
-                        icon: "☀️",
-                        color: "#FFC107"
-                    },
-                    {
-                        name: "Bölcs Balázs",
-                        role: "Király",
-                        description: "Lassan jár, de biztosan. A türelemre és a megfontoltságra tanít: minden döntés számít.",
-                        icon: "🌳",
-                        color: "#3F51B5"
-                    }
-                ]
-            },
-            instructors: {
-                title: "Akik a kalandot vezetik",
-                subtitle: "Tapasztalt mentorok, akik értik a gyerekek nyelvét.",
-                items: [
-                    {
-                        name: "Salvador Villarroel",
-                        role: "Vezetőedző & Mesemondó",
-                        description: "A \"Story Method\" megalkotója. Hisz abban, hogy a sakktáblán minden lépés egy történet. Célja, hogy meséken keresztül szerettesse meg a gondolkodást, önbizalmat adva a gyerekeknek a játékban és az életben is."
-                    },
-                    {
-                        name: "Milán",
-                        role: "Mentor & Stratéga",
-                        description: "A türelem és a precizitás mestere. Nyugodt, támogató jelenlétével biztosítja, hogy minden kis kalandozó megtalálja a saját útját a Sakk-szigeten, legyen szó a szabályok megértéséről vagy egy cseles mattadásról."
-                    }
-                ]
-            },
-            contact: {
-                headline: "Kezdjük el a közös kalandot!",
-                nameLabel: "Szülő Neve",
-                emailLabel: "E-mail cím",
-                kindergartenLabel: "Óvoda neve / Gyermek kora",
-                messageLabel: "Miben segíthetünk?",
-                submitBtn: "Ingyenes próbaóra kérése"
-            },
-            footer: {
-                copyright: "Salvador Chess © 2026. Minden jog fenntartva.",
-                backToPortfolio: "Visszalépés a Szakmai Portfólióra"
-            }
         },
         about: {
             title: "Ki vagyok én",

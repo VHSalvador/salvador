@@ -1,18 +1,11 @@
 import React from 'react';
 import { useLanguage } from '../context/LanguageContext';
-import { Link, useLocation } from 'react-router-dom';
 
 const Navbar = () => {
     const { t, toggleLanguage, language } = useLanguage();
     const nav = t('nav');
-    const location = useLocation();
-    const isChessPage = location.pathname === '/chess-coaching';
 
     const [isMenuOpen, setIsMenuOpen] = React.useState(false);
-
-    const toggleMenu = () => {
-        setIsMenuOpen(!isMenuOpen);
-    };
 
     return (
         <nav className="navbar" style={styles.nav}>
@@ -21,37 +14,20 @@ const Navbar = () => {
                     <span style={styles.icon} role="img" aria-label="book icon">📖</span> Salvador Villarroel
                 </div>
 
-                <button className="hamburger" onClick={toggleMenu} aria-label="Toggle navigation menu" style={styles.hamburgerBtn}>
+                <button className="hamburger" onClick={() => setIsMenuOpen(!isMenuOpen)} aria-label="Toggle navigation menu" style={styles.hamburgerBtn}>
                     <span className={isMenuOpen ? "bar open" : "bar"}></span>
                     <span className={isMenuOpen ? "bar open" : "bar"}></span>
                     <span className={isMenuOpen ? "bar open" : "bar"}></span>
                 </button>
 
                 <div className={`nav-links ${isMenuOpen ? "active" : ""}`} style={styles.links}>
-                    {!isChessPage ? (
-                        <>
-                            <a href="#about" onClick={() => setIsMenuOpen(false)}>{nav.about}</a>
-                            <a href="#about" onClick={() => setIsMenuOpen(false)}>{nav.work}</a>
-                            <a href="#fun-facts" onClick={() => setIsMenuOpen(false)}>{nav.funFacts}</a>
-                            <Link to="/chess-coaching" style={{ ...styles.link, ...styles.highlight }} onClick={() => setIsMenuOpen(false)}>{nav.chessCoaching}</Link>
-                            <button style={styles.langBtn} onClick={() => { toggleLanguage(); setIsMenuOpen(false); }}>
-                                {language === 'en' ? 'HU' : 'EN'}
-                            </button>
-                            <a href="#contact" className="btn btn-primary" style={styles.contactBtn} onClick={() => setIsMenuOpen(false)}>{nav.contact}</a>
-                        </>
-                    ) : (
-                        <>
-                            <a href="#methodology" onClick={() => setIsMenuOpen(false)}>{t('chess.nav.methodology')}</a>
-                            <a href="#details" onClick={() => setIsMenuOpen(false)}>{t('chess.nav.details')}</a>
-                            <a href="#contact" onClick={() => setIsMenuOpen(false)}>{t('chess.nav.contact')}</a>
-                            <button style={styles.langBtn} onClick={() => { toggleLanguage(); setIsMenuOpen(false); }}>
-                                {language === 'en' ? 'HU' : 'EN'}
-                            </button>
-                            <Link to="/" className="btn btn-primary" style={{ ...styles.contactBtn, marginLeft: '1rem' }} onClick={() => setIsMenuOpen(false)}>
-                                {t('chess.nav.backToPortfolio')}
-                            </Link>
-                        </>
-                    )}
+                    <a href="#about" onClick={() => setIsMenuOpen(false)}>{nav.about}</a>
+                    <a href="#work" onClick={() => setIsMenuOpen(false)}>{nav.work}</a>
+                    <a href="#fun-facts" onClick={() => setIsMenuOpen(false)}>{nav.funFacts}</a>
+                    <button style={styles.langBtn} onClick={() => { toggleLanguage(); setIsMenuOpen(false); }}>
+                        {language === 'en' ? 'HU' : 'EN'}
+                    </button>
+                    <a href="#contact" className="btn btn-primary" style={styles.contactBtn} onClick={() => setIsMenuOpen(false)}>{nav.contact}</a>
                 </div>
             </div>
         </nav>
@@ -78,15 +54,6 @@ const styles = {
     },
     links: {
         // display, gap, alignItems, fontSize MOVED TO CSS .nav-links
-    },
-    link: {
-        textDecoration: 'none',
-        color: 'inherit',
-    },
-    highlight: {
-        textDecoration: 'underline',
-        textUnderlineOffset: '4px',
-        fontWeight: 'bold'
     },
     langBtn: {
         color: 'var(--color-bg)',
