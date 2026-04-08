@@ -8,10 +8,8 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const DIST_DIR = path.join(__dirname, '../dist');
-// Define routes to capture. First one must be root.
 const ROUTES = [
     { path: '/', file: 'index.html' },
-    { path: '/chess-coaching', file: 'chess-coaching/index.html', selector: 'a[href*="chess-coaching"]' }
 ];
 const PORT = 4173;
 const BASE_URL = `http://localhost:${PORT}/salvador/`;
@@ -44,44 +42,6 @@ async function prerender() {
 
     // Save Root
     await savePage(page, 'index.html');
-
-    // 2. Navigate to other routes
-    for (const route of ROUTES) {
-        if (route.path === '/') continue; // Already there
-
-        console.log(`🧭 Navigating to ${route.path}...`);
-
-        try {
-            // Find link and click
-            const linkFound = await page.evaluate((selector) => {
-                const el = document.querySelector(selector);
-                if (el) {
-                    el.click();
-                    return true;
-                }
-                return false;
-            }, route.selector);
-
-            if (!linkFound) {
-                console.error(`⚠️ Link not found for ${route.path} using selector ${route.selector}`);
-                continue;
-            }
-
-            // Wait for navigation/render
-            await new Promise(r => setTimeout(r, 1000));
-
-            // Save Page
-            await savePage(page, route.file);
-
-            // Optional: Navigate back if needed, but for linear list simpler to just go to next or reload root? 
-            // For simple site, we can just click "Home" or reload root.
-            // Let's reload root to be safe for next iteration
-            await page.goto(BASE_URL, { waitUntil: 'networkidle0' });
-
-        } catch (error) {
-            console.error(`❌ Error processing ${route.path}:`, error);
-        }
-    }
 
     await browser.close();
     serverProcess.kill();

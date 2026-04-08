@@ -20,19 +20,30 @@ const FunFacts = () => {
                     {content.items.map((item, index) => (
                         <div key={index} style={styles.card}>
                             <div style={styles.imageContainer}>
-                                <img
-                                    src={`${import.meta.env.BASE_URL}img/${item.imgKey}.webp`}
-                                    srcSet={`
-                                        ${import.meta.env.BASE_URL}img/${item.imgKey}-small.webp 400w,
-                                        ${import.meta.env.BASE_URL}img/${item.imgKey}-medium.webp 800w,
-                                        ${import.meta.env.BASE_URL}img/${item.imgKey}.webp 1200w
-                                    `}
-                                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                                    alt={item.title}
-                                    loading="lazy"
-                                    style={styles.image}
-                                    onError={(e) => { e.target.style.display = 'none'; e.target.parentNode.style.backgroundColor = '#E5E5E0' }}
-                                />
+                                <picture>
+                                    <source
+                                        type="image/avif"
+                                        srcSet={`
+                                            ${import.meta.env.BASE_URL}img/${item.imgKey}-small.avif 400w,
+                                            ${import.meta.env.BASE_URL}img/${item.imgKey}-medium.avif 800w,
+                                            ${import.meta.env.BASE_URL}img/${item.imgKey}.avif 1200w
+                                        `}
+                                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                                    />
+                                    <img
+                                        src={`${import.meta.env.BASE_URL}img/${item.imgKey}.webp`}
+                                        srcSet={`
+                                            ${import.meta.env.BASE_URL}img/${item.imgKey}-small.webp 400w,
+                                            ${import.meta.env.BASE_URL}img/${item.imgKey}-medium.webp 800w,
+                                            ${import.meta.env.BASE_URL}img/${item.imgKey}.webp 1200w
+                                        `}
+                                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                                        alt={item.title}
+                                        loading="lazy"
+                                        style={styles.image}
+                                        onError={(e) => { e.target.style.display = 'none'; e.target.parentNode.style.backgroundColor = '#E5E5E0' }}
+                                    />
+                                </picture>
                             </div>
                             <div style={styles.content}>
                                 <h3 style={styles.title}>

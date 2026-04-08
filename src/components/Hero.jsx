@@ -30,20 +30,31 @@ const Hero = () => {
 
                     <div className="hero-right" style={styles.right}>
                         <div style={styles.imagePlaceholder}>
-                            <img
-                                alt="Salvador Villarroel"
-                                src={`${import.meta.env.BASE_URL}img/hero-profile-new.webp`}
-                                srcSet={`
-                                    ${import.meta.env.BASE_URL}img/hero-profile-new-small.webp 400w,
-                                    ${import.meta.env.BASE_URL}img/hero-profile-new-medium.webp 800w,
-                                    ${import.meta.env.BASE_URL}img/hero-profile-new.webp 1200w
-                                `}
-                                sizes="(max-width: 768px) 100vw, 50vw"
-                                style={styles.image}
-                                fetchPriority="high"
-                                width="800"
-                                height="1000"
-                            />
+                            <picture>
+                                <source
+                                    type="image/avif"
+                                    srcSet={`
+                                        ${import.meta.env.BASE_URL}img/hero-profile-new-small.avif 400w,
+                                        ${import.meta.env.BASE_URL}img/hero-profile-new-medium.avif 800w,
+                                        ${import.meta.env.BASE_URL}img/hero-profile-new.avif 1200w
+                                    `}
+                                    sizes="(max-width: 768px) 100vw, 50vw"
+                                />
+                                <img
+                                    alt="Salvador Villarroel"
+                                    src={`${import.meta.env.BASE_URL}img/hero-profile-new.webp`}
+                                    srcSet={`
+                                        ${import.meta.env.BASE_URL}img/hero-profile-new-small.webp 400w,
+                                        ${import.meta.env.BASE_URL}img/hero-profile-new-medium.webp 800w,
+                                        ${import.meta.env.BASE_URL}img/hero-profile-new.webp 1200w
+                                    `}
+                                    sizes="(max-width: 768px) 100vw, 50vw"
+                                    style={styles.image}
+                                    fetchPriority="high"
+                                    width="800"
+                                    height="1000"
+                                />
+                            </picture>
                         </div>
                     </div>
                 </div>

@@ -6,12 +6,12 @@ Scoring baseline from audit (2026-04-08). Target: 10/10 on all five axes.
 
 ## 1. Performance & Core Web Vitals (7 → 10)
 
-- [ ] **P1** Add a real branded favicon — replace `/vite.svg` reference in `index.html` and add `public/favicon.ico` + `public/favicon.svg`
-- [ ] **P1** Delete unused PNG originals from `public/img/` (`perfume.png`, `morning.png`, `plant.png`, `climbing.png`, `multilingual.png`, `chess.png`) — they inflate the deploy but are never served
-- [ ] **P2** Add Google Analytics (GA4) — add gtag snippet to `index.html` or via a component; no data currently collected
-- [ ] **P2** Generate AVIF versions of all images alongside WebP for ~30% additional size savings; update `srcSet` to serve AVIF first with WebP fallback
-- [ ] **P3** Audit `scripts/prerender.js` — verify it produces usable static HTML for the home route; if not, simplify or remove it to avoid false confidence
-- [ ] **P3** Remove unused hero image variants (`hero-profile.jpg`, `hero-profile.webp`, `hero-profile-medium.webp`, `hero-profile-small.webp`) if superseded by `-new-` variants
+- [x] **P1** Add a real branded favicon — `public/favicon.svg` with SV initials; `index.html` updated
+- [x] **P1** Delete unused PNG originals from `public/img/` (`perfume.png`, `morning.png`, `plant.png`, `climbing.png`, `multilingual.png`, `chess.png`) — deleted
+- [x] **P2** Add Google Analytics (GA4) — gtag snippet added to `index.html`; replace `G-XXXXXXXXXX` with real Measurement ID
+- [x] **P2** Generate AVIF versions of all images alongside WebP; `<picture>` elements in `Hero.jsx` and `FunFacts.jsx` serve AVIF first with WebP fallback
+- [x] **P3** Audit `scripts/prerender.js` — removed dead `/chess-coaching` route; simplified to home-only
+- [x] **P3** Remove unused hero image variants (`hero-profile.jpg`, `hero-profile.webp`, `hero-profile-medium.webp`, `hero-profile-small.webp`) — deleted
 
 ---
 
