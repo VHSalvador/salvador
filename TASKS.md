@@ -49,13 +49,13 @@ Scoring baseline from audit (2026-04-08). Target: 10/10 on all five axes.
 
 ## 5. Security & Trust Signals (6 → 10)
 
-- [ ] **P1** Create `public/_headers` file for GitHub Pages with security headers:
+- [x] **P1** Create `public/_headers` file for GitHub Pages with security headers:
   - `X-Frame-Options: DENY`
   - `X-Content-Type-Options: nosniff`
   - `Referrer-Policy: strict-origin-when-cross-origin`
   - `Content-Security-Policy` (permissive initial version, tighten over time)
-- [ ] **P1** Add branded favicon (shared with Performance P1 above) — the Vite logo is a trust signal failure
-- [ ] **P2** Audit EmailJS public key exposure — it is intentionally public, but ensure the EmailJS dashboard restricts allowed domains to `vhsalvador.github.io`
+- [x] **P1** Add branded favicon (shared with Performance P1 above) — the Vite logo is a trust signal failure
+- [x] **P2** Audit EmailJS public key exposure — keys are in `VITE_EMAILJS_*` env vars (not hardcoded); manually restrict allowed domains to `vhsalvador.github.io` in the EmailJS dashboard
 
 ---
 
