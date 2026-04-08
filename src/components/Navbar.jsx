@@ -40,6 +40,12 @@ const Navbar = () => {
     );
 };
 
+const navControlBtn = {
+    color: 'var(--color-bg)',
+    border: '1px solid var(--color-bg)',
+    borderRadius: '4px',
+};
+
 const styles = {
     nav: {
         // backgroundColor, color, padding, position, top, zIndex MOVED TO CSS .navbar
@@ -62,17 +68,13 @@ const styles = {
         // display, gap, alignItems, fontSize MOVED TO CSS .nav-links
     },
     langBtn: {
-        color: 'var(--color-bg)',
-        border: '1px solid var(--color-bg)',
+        ...navControlBtn,
         padding: '0.25rem 0.5rem',
-        borderRadius: '4px',
         fontSize: '0.8rem',
     },
     themeBtn: {
-        color: 'var(--color-bg)',
-        border: '1px solid var(--color-bg)',
+        ...navControlBtn,
         padding: '0.25rem 0.4rem',
-        borderRadius: '4px',
         display: 'flex',
         alignItems: 'center',
     },
