@@ -504,13 +504,11 @@ img {
 }
 
 /* Dark Mode */
-@media (prefers-color-scheme: dark) {
-  :root {
-    color-scheme: dark;
-    --color-bg: #1C1C16;
-    --color-text-primary: #7AACBE;
-    --color-text-secondary: #D0D0C6;
-    --color-accent: #E07A46;
-    --color-blue-dark: #A8CEDA;
-  }
+[data-theme="dark"] {
+  color-scheme: dark;
+  --color-bg: #1C1C16;
+  --color-text-primary: #7AACBE;
+  --color-text-secondary: #D0D0C6;
+  --color-accent: #E07A46;
+  --color-blue-dark: #A8CEDA;
 }

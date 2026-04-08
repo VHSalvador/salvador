@@ -1,8 +1,11 @@
 import React from 'react';
 import { useLanguage } from '../context/LanguageContext';
+import { useTheme } from '../context/ThemeContext';
+import { Sun, Moon } from 'lucide-react';
 
 const Navbar = () => {
     const { t, toggleLanguage, language } = useLanguage();
+    const { theme, toggleTheme } = useTheme();
     const nav = t('nav');
 
     const [isMenuOpen, setIsMenuOpen] = React.useState(false);
@@ -26,6 +29,9 @@ const Navbar = () => {
                     <a href="#fun-facts" onClick={() => setIsMenuOpen(false)}>{nav.funFacts}</a>
                     <button style={styles.langBtn} onClick={() => { toggleLanguage(); setIsMenuOpen(false); }}>
                         {language === 'en' ? 'HU' : 'EN'}
+                    </button>
+                    <button style={styles.themeBtn} onClick={() => { toggleTheme(); setIsMenuOpen(false); }} aria-label={theme === 'light' ? 'Switch to dark mode' : 'Switch to light mode'}>
+                        {theme === 'light' ? <Moon size={16} /> : <Sun size={16} />}
                     </button>
                     <a href="#contact" className="btn btn-primary" style={styles.contactBtn} onClick={() => setIsMenuOpen(false)}>{nav.contact}</a>
                 </div>
@@ -61,6 +67,14 @@ const styles = {
         padding: '0.25rem 0.5rem',
         borderRadius: '4px',
         fontSize: '0.8rem',
+    },
+    themeBtn: {
+        color: 'var(--color-bg)',
+        border: '1px solid var(--color-bg)',
+        padding: '0.25rem 0.4rem',
+        borderRadius: '4px',
+        display: 'flex',
+        alignItems: 'center',
     },
     contactBtn: {
         backgroundColor: '#1E3A5F', // Dark Navy
