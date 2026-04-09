@@ -1,7 +1,7 @@
 # CLAUDE.md — Salvador Portfolio
 
 ## What this project is
-Personal namecard/portfolio website for Salvador Villarroel. Target: people who receive his CV or hear his name — mostly mobile users. Linked on his CV and LinkedIn. Deployed to GitHub Pages at `https://vhsalvador.github.io/salvador/`.
+Personal namecard/portfolio website for Salvador Villarroel. Target: people who receive his CV or hear his name — mostly mobile users. Linked on his CV and LinkedIn. Deployed to Rackhost at `https://salvador.hu`.
 
 ## What this project is NOT
 - The chess coaching business lives in `chess-site/` — a separate standalone project for a different domain. **Do not touch `chess-site/` when working on the main portfolio.**
@@ -12,13 +12,13 @@ Personal namecard/portfolio website for Salvador Villarroel. Target: people who 
 - `react-helmet-async` for SEO/meta
 - `@emailjs/browser` for contact form
 - `lucide-react` for icons
-- Deployed via `gh-pages` (`npm run deploy`)
+- Deployed to Rackhost via FTP (`npm run deploy:ftp`). Run this if user asks to "push to FileZilla" or push to live.
 
 ## Key constraints
 - **Mobile-first** — majority of visitors are on phones
 - **Bilingual HU/EN** — Hungarian is the default (`useState('hu')` in LanguageContext)
 - **All copy lives in one file**: `src/content/translations.js`. Never hardcode display strings in components.
-- **GitHub Pages** — no server, no SSR. Static only. Security headers go in `public/_headers`.
+- **Rackhost** — Apache server. Static hosting, with routing and headers handled by `.htaccess`.
 
 ## Token-efficient file reading order
 When starting a session, read these first — they give 80% of the context:
@@ -42,7 +42,7 @@ Avoid reading the full component tree unless the task spans multiple components.
 - `npm install` if `node_modules` is missing (use `--legacy-peer-deps` if needed)
 - `npm run build` to verify — the Puppeteer prerender step fails in WSL (missing Chrome libs), that is expected and not a code error; the Vite build passing is sufficient
 - Commit all changes, then `git push origin main`
-- `npm run deploy` to push `dist/` to `gh-pages` and update the live GitHub Pages site
+- If requested to push live, run `npm run deploy:ftp` to upload directly to Rackhost via FTP.
 
 ## Do not
 - Add features not requested
