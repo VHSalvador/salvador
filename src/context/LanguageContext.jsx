@@ -1,10 +1,14 @@
-import React, { createContext, useContext, useState } from 'react';
+import React, { createContext, useContext, useState, useEffect } from 'react';
 import { translations } from '../content/translations';
 
 const LanguageContext = createContext();
 
 export const LanguageProvider = ({ children }) => {
     const [language, setLanguage] = useState('hu'); // Default to Hungarian
+
+    useEffect(() => {
+        document.documentElement.lang = language;
+    }, [language]);
 
     const toggleLanguage = () => {
         setLanguage((prev) => (prev === 'hu' ? 'en' : 'hu'));
@@ -27,4 +31,5 @@ export const LanguageProvider = ({ children }) => {
     );
 };
 
+// eslint-disable-next-line react-refresh/only-export-components
 export const useLanguage = () => useContext(LanguageContext);

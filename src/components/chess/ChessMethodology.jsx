@@ -1,6 +1,6 @@
 import React from 'react';
 import { useLanguage } from '../../context/LanguageContext';
-import { Map, Hourglass, Lightbulb } from 'lucide-react';
+import { Map, Hourglass, Lightbulb, Brain } from 'lucide-react';
 
 const ChessMethodology = () => {
     const { t } = useLanguage();

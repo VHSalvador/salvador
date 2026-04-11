@@ -12,6 +12,7 @@ function App() {
             <LanguageProvider>
                 <Router basename={import.meta.env.BASE_URL}>
                     <div className="app">
+                        <a href="#main" className="skip-link">Skip to content</a>
                         <Routes>
                             <Route path="/" element={<Home />} />
                             <Route path="*" element={<div style={{ padding: 50, fontSize: 24 }}>404 - Page not found.</div>} />

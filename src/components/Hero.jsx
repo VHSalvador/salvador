@@ -6,12 +6,12 @@ const Hero = () => {
     const content = t('hero');
 
     return (
-        <section className="section" style={styles.section}>
+        <section className="section" style={styles.section} aria-labelledby="hero-title">
             <div className="container" style={{ width: '100%' }}>
                 <div className="hero-grid">
                     <div style={styles.left}>
                         <small style={styles.tagline}>{content.tagline}</small>
-                        <h1 style={styles.title}>{content.title}</h1>
+                        <h1 id="hero-title" style={styles.title}>{content.title}</h1>
                         <p style={styles.description}>{content.description}</p>
 
                         <div className="buttons" style={styles.buttons}>
@@ -98,7 +98,7 @@ const styles = {
         display: 'flex',
         gap: '1rem',
         marginTop: '2rem',
-        backgroundColor: '#FFFFFF',
+        backgroundColor: 'var(--color-card-bg)',
         padding: '1.5rem',
         borderRadius: '8px',
         boxShadow: '0 4px 20px rgba(0,0,0,0.05)',
@@ -112,12 +112,12 @@ const styles = {
         fontStyle: 'italic',
         fontSize: '0.9rem',
         marginBottom: '0.5rem',
-        color: '#555',
+        color: 'var(--color-text-secondary)',
     },
     quoteAuthor: {
         fontSize: '0.7rem',
         textTransform: 'uppercase',
-        color: '#888',
+        color: 'var(--color-text-muted)',
         fontWeight: 'bold',
     },
     right: {

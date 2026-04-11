@@ -11,6 +11,7 @@ const ChessStats = () => {
     const [isVisible, setIsVisible] = useState(false);
 
     useEffect(() => {
+        const refElement = sectionRef.current;
         const observer = new IntersectionObserver(
             ([entry]) => {
                 if (entry.isIntersecting) {
@@ -21,12 +22,12 @@ const ChessStats = () => {
             { threshold: 0.3 }
         );
 
-        if (sectionRef.current) {
-            observer.observe(sectionRef.current);
+        if (refElement) {
+            observer.observe(refElement);
         }
 
         return () => {
-            if (sectionRef.current) observer.unobserve(sectionRef.current);
+            if (refElement) observer.unobserve(refElement);
         };
     }, []);
 

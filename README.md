@@ -1,16 +1,36 @@
-# React + Vite
+# Salvador Villarroel - Personal Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A sleek, modern portfolio and personal landing page built with React, Vite, and Javascript. Features comprehensive SEO, responsive dark-mode, multi-language support (English & Hungarian), and robust semantic HTML tailored for high accessibility and machine-readability (including a custom `llms.txt`).
 
-Currently, two official plugins are available:
+## Key Features
+- **Responsive Architecture**: Built fully custom with Vanilla CSS variables logic for smooth dark mode handling.
+- **Internationalization (i18n)**: Seamless language toggling with dynamic JSON-LD and HTML `lang` attributes.
+- **Accessibility (A11y)**: Fully WCAG AA+ compliant with deep ARIA mapping, skip-to-content logic, and auto-hyphenation.
+- **Performance Optimized**: Lazy-loaded form components, pre-generated AVIF/WebP formats with custom `srcSet` loading, and minimal main UI blocking components.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Setup & Deployment
 
-## React Compiler
+1. Install dependencies:
+   ```bash
+   npm install
+   ```
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+2. Run the local development server:
+   ```bash
+   npm run dev
+   ```
 
-## Expanding the ESLint configuration
+3. Generate a production build:
+   ```bash
+   npm run build
+   ```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Security & CSP Headers
+
+This project ships with a strict `_headers` file enforcing a tightened Content Security Policy (CSP), including constraints on `unsafe-inline` framing and preventing cross-origin sniffs.
+
+> [!WARNING]
+> **Important Note regarding GitHub Pages:** 
+> The `public/_headers` file is currently **advisory only** when deployed directly to GitHub Pages. GitHub’s CDN edge nodes do not natively parse edge caching headers or enforce runtime CSP values from static repositories.
+> 
+> To enable actual runtime enforcement and ensure your visitors are securely protected, it is highly recommended to sit this application behind a proxy CDN (such as **Cloudflare**, **Netlify**, or **Vercel**), which will accurately read and enforce the `_headers` block.

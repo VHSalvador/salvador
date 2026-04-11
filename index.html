@@ -10,18 +10,41 @@
   <link rel="preload" href="%BASE_URL%fonts/Inter-LatinExt.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="%BASE_URL%fonts/Playfair-Latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="%BASE_URL%fonts/Playfair-LatinExt.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="%BASE_URL%img/hero-profile-new.webp" as="image" fetchpriority="high">
-  <!-- Google Analytics — replace G-XXXXXXXXXX with your GA4 Measurement ID -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <link rel="preload" as="image" type="image/avif"
+    href="%BASE_URL%img/hero-profile-new.avif"
+    imagesrcset="%BASE_URL%img/hero-profile-new-small.avif 400w, %BASE_URL%img/hero-profile-new-medium.avif 800w, %BASE_URL%img/hero-profile-new.avif 1200w"
+    imagesizes="(max-width: 768px) 100vw, 50vw"
+    fetchpriority="high">
+  <!-- SEO & Social Media Previews -->
+  <meta name="description" content="Salvador Villarroel - Full Stack Fejlesztő, Automatizálási Szakértő és Sakk Oktató. Modern webes megoldások és közösségépítés." />
+  
+  <!-- Open Graph / Facebook / Messenger -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://salvador.hu/" />
+  <meta property="og:title" content="Salvador Villarroel - Portfolio" />
+  <meta property="og:description" content="Full Stack Fejlesztő, Automatizálási Szakértő és Sakk Oktató. Fedezd fel a munkáimat és projektjeimet." />
+  <meta property="og:site_name" content="Salvador Villarroel Portfolio" />
+  <meta property="og:image" content="https://salvador.hu/img/hero-profile-new.webp" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:url" content="https://salvador.hu/" />
+  <meta name="twitter:title" content="Salvador Villarroel - Portfolio" />
+  <meta name="twitter:description" content="Full Stack Fejlesztő, Automatizálási Szakértő és Sakk Oktató." />
+  <meta name="twitter:image" content="https://salvador.hu/img/hero-profile-new.webp" />
+  
+  <!-- Google Analytics — GA4 Measurement ID -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-BVB6953T09"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-    gtag('config', 'G-XXXXXXXXXX');
+    gtag('config', 'G-BVB6953T09');
   </script>
 </head>
 
 <body>
+  <noscript>Please enable JavaScript to run this app.</noscript>
   <div id="root"></div>
   <script type="module" src="/src/main.jsx"></script>
 </body>

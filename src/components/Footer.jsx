@@ -12,7 +12,7 @@ const Footer = () => {
             <div style={styles.ctaSection}>
                 <h2 style={styles.ctaTitle}>{content.ctaTitle}</h2>
                 <p style={styles.ctaDesc}>{content.ctaDesc}</p>
-                <button style={styles.ctaBtn}>{content.btn}</button>
+                <a href="#contact" style={styles.ctaBtn}>{content.btn}</a>
             </div>
 
             {/* Main Footer Content */}
@@ -43,7 +43,7 @@ const styles = {
         marginTop: '3rem',
     },
     ctaSection: {
-        backgroundColor: '#6B8C9E',
+        backgroundColor: 'var(--color-text-primary)',
         padding: '3rem 1.5rem',
         textAlign: 'center',
         color: '#fff',
@@ -71,9 +71,11 @@ const styles = {
         fontSize: '0.9rem',
         fontWeight: 'bold',
         cursor: 'pointer',
+        textDecoration: 'none',
+        display: 'inline-block',
     },
     footerMain: {
-        backgroundColor: '#6B8C9E',
+        backgroundColor: 'var(--color-text-primary)',
         padding: '2rem 0',
         borderTop: '1px solid rgba(255,255,255,0.1)',
         color: '#fff',

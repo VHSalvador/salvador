@@ -6,9 +6,9 @@ const FunFacts = () => {
     const content = t('funFacts');
 
     return (
-        <section id="fun-facts" className="section">
+        <section id="fun-facts" className="section" aria-labelledby="fun-facts-title">
             <div className="container">
-                <h2 style={styles.header}>
+                <h2 id="fun-facts-title" style={styles.header}>
                     {content.title.split('&').map((part, i, arr) => (
                         <React.Fragment key={i}>
                             {part}
@@ -28,7 +28,7 @@ const FunFacts = () => {
                                             ${import.meta.env.BASE_URL}img/${item.imgKey}-medium.avif 800w,
                                             ${import.meta.env.BASE_URL}img/${item.imgKey}.avif 1200w
                                         `}
-                                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                                        sizes="(max-width: 768px) 90vw, (max-width: 1200px) 50vw, 33vw"
                                     />
                                     <img
                                         src={`${import.meta.env.BASE_URL}img/${item.imgKey}.webp`}
@@ -37,7 +37,7 @@ const FunFacts = () => {
                                             ${import.meta.env.BASE_URL}img/${item.imgKey}-medium.webp 800w,
                                             ${import.meta.env.BASE_URL}img/${item.imgKey}.webp 1200w
                                         `}
-                                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                                        sizes="(max-width: 768px) 90vw, (max-width: 1200px) 50vw, 33vw"
                                         alt={item.title}
                                         loading="lazy"
                                         style={styles.image}
@@ -45,7 +45,7 @@ const FunFacts = () => {
                                     />
                                 </picture>
                             </div>
-                            <div style={styles.content}>
+                            <div style={styles.textContainer}>
                                 <h3 style={styles.title}>
                                     {item.title.split('&').map((part, i, arr) => (
                                         <React.Fragment key={i}>

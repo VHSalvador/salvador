@@ -1,3 +1,4 @@
+/* global process, __dirname */
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
@@ -5,7 +6,7 @@ import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const SITE_URL = process.env.SITE_URL ?? 'https://www.salvador.hu';
+const SITE_URL = process.env.SITE_URL ?? 'https://salvador.hu';
 
 const routes = [
     { path: '/', changefreq: 'monthly', priority: '1.0' }

@@ -16,7 +16,7 @@ const TimelineSkills = () => {
     };
 
     const highlightNumbers = (text) => {
-        const regex = /(50\+|10[\s,\.]?000\+|4\+)/g;
+        const regex = /(50\+|10[\s,.]?000\+|4\+)/g;
         const parts = text.split(regex);
         return parts.map((part, i) => {
             if (part.match(regex)) {
@@ -32,7 +32,7 @@ const TimelineSkills = () => {
                 <div className="grid-auto-fit">
                     {/* Timeline Column */}
                     <div style={styles.column}>
-                        <h2 style={styles.header}>Timeline</h2>
+                        <h2 style={styles.header}>{t('timelineTitle')}</h2>
                         <div style={styles.timelineContainer}>
                             {timeline.map((item, index) => (
                                 <div key={index} style={styles.timelineItem}>

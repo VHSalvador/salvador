@@ -6,6 +6,13 @@ export const translations = {
             funFacts: "Fun Facts",
             contact: "Contact",
         },
+        seo: {
+            title: "Salvador Villarroel - Full Stack Developer & Automation Expert",
+            description: "Salvador Villarroel's Portfolio. Full Stack Developer, AI Automation Specialist, and Chess Coach. Building modern, scalable web solutions.",
+            jobTitle: "Full Stack Developer",
+            chessCoach: "Chess Coach",
+            aiAutomation: "AI Automation Specialist"
+        },
         hero: {
             tagline: "CURIOUS MIND, ADAPTIVE SPIRIT",
             title: "I grow, therefore I am.",
@@ -49,7 +56,7 @@ export const translations = {
                 },
                 {
                     title: "Technology & AI",
-                    desc: "I speak English (C1), Japanese (N3), and Hungarian - connecting with people across cultures!",
+                    desc: "From ChatGPT's launch to custom n8n workflows and agentic AI systems — I've been deep in the AI rabbit hole since day one.",
                     imgKey: "multilingual"
                 },
                 {
@@ -77,7 +84,6 @@ export const translations = {
         contact: {
             title: "Let's Connect",
             description: "I'm always open to new opportunities and connections. Feel free to reach out!",
-            phone: "+36 30 860 1718",
             email: "salvador.vh05@gmail.com",
             linkedin: "LinkedIn Profile",
             github: "GitHub Profile",
@@ -93,7 +99,10 @@ export const translations = {
                 errorName: "Please enter your name.",
                 errorEmail: "Please enter your email address.",
                 errorDatetime: "Please select a date and time.",
-                errorSubmit: "Failed to send booking request. Please try again later."
+                errorSubmit: "Failed to send booking request. Please try again later.",
+                submitting: "Scheduling...",
+                successTitle: "Booking Confirmed!",
+                successDesc: "A confirmation email has been sent to "
             },
             weekDays: ['Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa', 'Su'],
         },
@@ -143,6 +152,7 @@ export const translations = {
                 ]
             }
         },
+        timelineTitle: "Timeline",
         footer: {
             ctaTitle: "Ready to collaborate? Let's talk.",
             ctaDesc: "Whether you need tutoring, community building, or technical solutions, I'm here to help you succeed.",
@@ -156,11 +166,11 @@ export const translations = {
             connect: "Connect",
             statsTitle: "Impact",
             stats: {
-                students: "10+ Students Coached",
+                students: "50+ Students Coached",
                 community: "10,000 Community Members",
                 quote: "\"Challenges are opportunities in disguise.\""
             },
-            copyright: "2025 Salvador Villarroel. All rights reserved."
+            copyright: "2026 Salvador Villarroel. All rights reserved."
         }
     },
     hu: {
@@ -169,6 +179,13 @@ export const translations = {
             work: "Munka",
             funFacts: "Szenvedélyek & Érdeklődés",
             contact: "Kapcsolat",
+        },
+        seo: {
+            title: "Salvador Villarroel - Full Stack Fejlesztő & Automatizálási Szakértő",
+            description: "Salvador Villarroel portfóliója. Full Stack fejlesztő, Automatizálási szakértő és Sakk oktató. Modern kihívások rendszerszintű megoldása.",
+            jobTitle: "Full Stack Fejlesztő",
+            chessCoach: "Sakk Oktató",
+            aiAutomation: "AI Automatizálási Szakértő"
         },
         hero: {
             tagline: "KÍVÁNCSI ELME, ALKALMAZKODÓ SZELLEM",
@@ -212,7 +229,7 @@ export const translations = {
                 },
                 {
                     title: "Technológia & AI",
-                    desc: "Beszélek angolul (C1), japánul (N3) és magyarul - kultúrákat kötök össze az embereken keresztül!",
+                    desc: "A ChatGPT megjelenésétől kezdve egyedi n8n munkafolyamatokon át az ügynök-alapú AI rendszerekig – az AI világa az első naptól fogva magával ragadott.",
                     imgKey: "multilingual"
                 },
                 {
@@ -240,7 +257,6 @@ export const translations = {
         contact: {
             title: "Kapcsolat",
             description: "Mindig nyitott vagyok új lehetőségekre és kapcsolatokra. Keress bátran!",
-            phone: "+36 30 860 1718",
             email: "salvador.vh05@gmail.com",
             linkedin: "LinkedIn Profil",
             github: "GitHub Profil",
@@ -256,10 +272,14 @@ export const translations = {
                 errorName: "Kérjük, add meg a neved.",
                 errorEmail: "Kérjük, add meg az email címed.",
                 errorDatetime: "Kérjük, válassz dátumot és időpontot.",
-                errorSubmit: "Nem sikerült elküldeni a foglalást. Kérjük, próbáld újra."
+                errorSubmit: "Nem sikerült elküldeni a foglalást. Kérjük, próbáld újra.",
+                submitting: "Ütemezés...",
+                successTitle: "Sikeres foglalás!",
+                successDesc: "Visszaigazoló e-mailt küldtünk a következő címre: "
             },
             weekDays: ['H', 'K', 'Sz', 'Cs', 'P', 'Sz', 'V'],
         },
+        timelineTitle: "Idővonal",
         footer: {
             ctaTitle: "Készen állsz az együttműködésre? Beszéljünk.",
             ctaDesc: "Legyen szó korrepetálásról, közösségépítésről vagy technikai megoldásokról, itt vagyok, hogy segítsek a sikerben.",
@@ -273,11 +293,11 @@ export const translations = {
             connect: "Kapcsolat",
             statsTitle: "Eredmények",
             stats: {
-                students: "10+ Tanítvány",
+                students: "50+ Tanítvány",
                 community: "10 000 Közösségi Tag",
                 quote: "\"A kihívások álcázott lehetőségek.\""
             },
-            copyright: "2025 Salvador Villarroel. All rights reserved."
+            copyright: "2026 Salvador Villarroel. All rights reserved."
         },
         timeline: [
             { year: "2005", title: "Születés Budapesten" },

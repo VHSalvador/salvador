@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useLanguage } from '../context/LanguageContext';
-import { Phone, Mail, Linkedin, Github, ChevronLeft, ChevronRight, Check } from 'lucide-react';
+import { Mail, Linkedin, Github, ChevronLeft, ChevronRight, Check } from 'lucide-react';
 import emailjs from '@emailjs/browser';
 
 const Contact = () => {
@@ -46,6 +46,9 @@ const Contact = () => {
 
     const handleDateClick = (day) => {
         const newDate = new Date(currentDate.getFullYear(), currentDate.getMonth(), day);
+        const today = new Date();
+        today.setHours(0, 0, 0, 0);
+        if (newDate < today) return;
         setSelectedDate(newDate);
         setSelectedTime(null);
     };
@@ -66,6 +69,14 @@ const Contact = () => {
             for (let hour = 16; hour < 20; hour++) {
                 slots.push(`${hour}:00`);
             }
+        }
+        const isToday = date.toDateString() === new Date().toDateString();
+        if (isToday) {
+            const nowHour = new Date().getHours();
+            return slots.filter(slot => {
+                const hour = parseInt(slot.split(':')[0], 10);
+                return hour > nowHour;
+            });
         }
         return slots;
     };
@@ -157,19 +168,15 @@ const Contact = () => {
     };
 
     return (
-        <section id="contact" className="section">
+        <section id="contact" className="section" aria-labelledby="contact-title">
             <div className="container">
                 <div className="grid-2-cols">
                     {/* Left Side: Contact Info */}
                     <div style={styles.info}>
-                        <h2 style={styles.header}>{content.title}</h2>
+                        <h2 id="contact-title" style={styles.header}>{content.title}</h2>
                         <p style={styles.desc}>{content.description}</p>
 
                         <div style={styles.contactDetails}>
-                            <div style={styles.contactItem}>
-                                <Phone size={24} color="#6aa8a0" aria-hidden="true" />
-                                <span>{content.phone}</span>
-                            </div>
                             <div style={styles.contactItem}>
                                 <Mail size={24} color="#6aa8a0" aria-hidden="true" />
                                 <span>{content.email}</span>
@@ -186,20 +193,20 @@ const Contact = () => {
                     </div>
 
                     {/* Right Side: Form */}
-                    <div style={styles.formCard}>
+                    <div style={styles.formCard} aria-live="polite">
                         {bookingStatus === 'success' ? (
                             <div style={styles.successMessage}>
                                 <Check size={48} color="#4CAF50" />
-                                <h3>Booking Confirmed!</h3>
-                                <p>A confirmation email has been sent to {formData.email}.</p>
+                                <h3>{content.form.successTitle}</h3>
+                                <p>{content.form.successDesc}{formData.email}.</p>
                             </div>
                         ) : (
-                            <>
+                            <form onSubmit={handleSubmit}>
                                 <h3 style={styles.formTitle}>{content.form.title}</h3>
 
                                 <div className="contact-form-grid">
                                     {/* Calendar Column */}
-                                    <div style={styles.calendarCol}>
+                                        <div style={styles.calendarCol}>
                                         <div style={styles.calendar}>
                                             <div style={styles.calHeader}>
                                                 <button onClick={handlePrevMonth} style={styles.navBtn} aria-label={t('contact.calendar.prevMonth') || "Previous month"}><ChevronLeft size={20} /></button>
@@ -213,18 +220,23 @@ const Contact = () => {
                                                     const date = new Date(currentDate.getFullYear(), currentDate.getMonth(), d);
                                                     const isSelected = selectedDate && date.toDateString() === selectedDate.toDateString();
                                                     const isToday = date.toDateString() === new Date().toDateString();
+                                                    const todayMidnight = new Date();
+                                                    todayMidnight.setHours(0, 0, 0, 0);
+                                                    const isPast = date < todayMidnight;
 
                                                     return (
                                                         <button
                                                             key={d}
                                                             type="button"
+                                                            disabled={isPast}
                                                             onClick={() => handleDateClick(d)}
                                                             aria-label={date.toLocaleDateString('default', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}
                                                             aria-pressed={isSelected}
                                                             style={{
                                                                 ...styles.calDay,
                                                                 ...(isSelected ? styles.calDayActive : {}),
-                                                                ...(isToday && !isSelected ? styles.calDayToday : {})
+                                                                ...(isToday && !isSelected ? styles.calDayToday : {}),
+                                                                ...(isPast ? styles.calDayPast : {})
                                                             }}
                                                         >
                                                             {d}
@@ -295,10 +307,10 @@ const Contact = () => {
                                     </div>
                                 </div>
                                 {formErrors.submit && <p style={styles.errorMsg}>{formErrors.submit}</p>}
-                                <button style={styles.btn} onClick={handleSubmit} disabled={bookingStatus === 'submitting'}>
-                                    {bookingStatus === 'submitting' ? 'Scheduling...' : content.form.btn}
+                                <button style={styles.btn} type="submit" disabled={bookingStatus === 'submitting'}>
+                                    {bookingStatus === 'submitting' ? content.form.submitting : content.form.btn}
                                 </button>
-                            </>
+                            </form>
                         )}
                     </div>
                 </div>
@@ -338,8 +350,8 @@ const styles = {
         textDecoration: 'none',
     },
     formCard: {
-        backgroundColor: '#F9F9F4',
-        border: '1px solid #EAEAEA',
+        backgroundColor: 'var(--color-card-bg-alt)',
+        border: '1px solid var(--color-border)',
         borderRadius: '24px',
         padding: '2rem',
         boxShadow: '0 4px 20px rgba(0,0,0,0.05)',
@@ -351,7 +363,7 @@ const styles = {
         fontWeight: '600',
     },
     calendar: {
-        backgroundColor: '#fff',
+        backgroundColor: 'var(--color-card-bg)',
         padding: '1rem',
         borderRadius: '12px',
         boxShadow: '0 2px 10px rgba(0,0,0,0.05)',
@@ -364,7 +376,7 @@ const styles = {
         alignItems: 'center',
         marginBottom: '1rem',
         fontWeight: 'bold',
-        color: '#333',
+        color: 'var(--color-text-secondary)',
     },
     navBtn: {
         background: 'none',
@@ -381,7 +393,7 @@ const styles = {
         textAlign: 'center',
     },
     calDayHeader: {
-        color: '#ccc',
+        color: 'var(--color-text-muted)',
         fontSize: '0.7rem',
         marginBottom: '5px',
     },
@@ -406,6 +418,10 @@ const styles = {
         color: '#5A7D8F',
         fontWeight: 'bold',
     },
+    calDayPast: {
+        opacity: 0.35,
+        cursor: 'not-allowed',
+    },
     timeSlots: {
         marginBottom: '1.5rem',
         animation: 'fadeIn 0.3s ease',
@@ -418,8 +434,9 @@ const styles = {
     timeSlot: {
         padding: '0.5rem',
         borderRadius: '6px',
-        border: '1px solid #ddd',
-        backgroundColor: '#fff',
+        border: '1px solid var(--color-border-dark)',
+        backgroundColor: 'var(--color-input-bg)',
+        color: 'var(--color-text-secondary)',
         cursor: 'pointer',
         fontSize: '0.8rem',
     },
@@ -429,9 +446,9 @@ const styles = {
         borderColor: '#5A7D8F',
     },
     timeSlotDisabled: {
-        backgroundColor: '#f0f0f0',
-        color: '#ccc',
-        borderColor: '#eee',
+        backgroundColor: 'var(--color-disabled-bg)',
+        color: 'var(--color-text-muted)',
+        borderColor: 'var(--color-border)',
         cursor: 'not-allowed',
         textDecoration: 'line-through'
     },
@@ -443,13 +460,15 @@ const styles = {
         fontSize: '0.9rem',
         fontWeight: '600',
         marginBottom: '0.5rem',
-        color: '#333',
+        color: 'var(--color-text-secondary)',
     },
     input: {
         width: '100%',
         padding: '0.8rem',
         borderRadius: '8px',
-        border: '1px solid #ddd',
+        border: '1px solid var(--color-border-dark)',
+        backgroundColor: 'var(--color-input-bg)',
+        color: 'var(--color-text-secondary)',
         fontSize: '0.9rem',
     },
     btn: {
@@ -467,7 +486,7 @@ const styles = {
     successMessage: {
         textAlign: 'center',
         padding: '2rem',
-        color: '#333',
+        color: 'var(--color-text-secondary)',
     },
     errorMsg: {
         color: '#c0392b',

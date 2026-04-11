@@ -69,6 +69,13 @@
   --color-accent: #D97746;
   --color-white: #FFFFFF;
   --color-blue-dark: #1E3A5F;
+  --color-card-bg: #FFFFFF;
+  --color-card-bg-alt: #F9F9F4;
+  --color-border: #EAEAEA;
+  --color-border-dark: #dddddd;
+  --color-text-muted: #888888;
+  --color-input-bg: #FFFFFF;
+  --color-disabled-bg: #f0f0f0;
 
   /* Typography */
   --font-serif: 'Playfair Display', serif;
@@ -98,6 +105,29 @@ body {
   font-family: var(--font-sans);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
+}
+
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--color-blue-dark);
+  color: white;
+  padding: 8px;
+  z-index: 10000;
+  transition: top 0.2s;
+  text-decoration: none;
+  border-radius: 0 0 8px 0;
+  font-weight: bold;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+p {
+  text-align: justify;
+  hyphens: auto;
 }
 
 h1,
@@ -441,13 +471,6 @@ img {
     /* Match navbar bg */
   }
 
-  /* Specific override for chess page nav links which might have different bg */
-  .chess-nav-links {
-    background-color: #FFFFFF;
-    /* White for chess page */
-    color: #1E3A5F;
-  }
-
   .nav-links.active {
     left: 0;
   }
@@ -459,41 +482,6 @@ img {
     /* Light text on dark bg */
   }
 
-  .chess-nav-links.active a,
-  .chess-nav-links.active button {
-    color: #1E3A5F;
-    /* Dark text on white bg */
-    margin: 0.5rem 0;
-  }
-}
-
-/* Chess Navbar Specifics */
-.chess-nav-links {
-  display: flex;
-  gap: 1.5rem;
-  align-items: center;
-  font-size: 0.9rem;
-}
-
-@media (max-width: 1024px) {
-  .chess-nav-links {
-    position: fixed;
-    top: 60px;
-    /* Adjust based on navbar height */
-    left: -100%;
-    width: 100%;
-    height: calc(100vh - 60px);
-    flex-direction: column;
-    justify-content: flex-start;
-    padding-top: 2rem;
-    transition: 0.3s ease-in-out;
-    border-top: 1px solid rgba(0, 0, 0, 0.05);
-    background-color: #FFFFFF;
-  }
-
-  .chess-nav-links.active {
-    left: 0;
-  }
 }
 
 /* Global Padding Fixes */
@@ -511,4 +499,11 @@ img {
   --color-text-secondary: #D0D0C6;
   --color-accent: #E07A46;
   --color-blue-dark: #A8CEDA;
+  --color-card-bg: #2C2C26;
+  --color-card-bg-alt: #262620;
+  --color-border: #3D3D35;
+  --color-border-dark: #4D4D45;
+  --color-text-muted: #999990;
+  --color-input-bg: #1C1C16;
+  --color-disabled-bg: #2A2A22;
 }

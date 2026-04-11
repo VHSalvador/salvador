@@ -13,7 +13,7 @@ const SEO = ({ title, description, keywords, name, type, schema, image }) => {
     // Let's use window.location.origin to match the current deployment domain automatically.
     // However, since we might be on localhost or production, we can also use a fixed base if preferred.
     // Ideally, for sitemap consistency, we use the production URL.
-    const siteUrl = 'https://vhsalvador.github.io/salvador';
+    const siteUrl = 'https://salvador.hu';
     // Remove leading slash from pathname to avoid double slashes if siteUrl ends with / (it doesn't here)
     const pathname = location.pathname === '/' ? '' : location.pathname.replace(/^\//, '');
     const canonicalUrl = `${siteUrl}/${pathname}`;

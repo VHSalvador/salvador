@@ -6,23 +6,28 @@ import About from '../components/About';
 import Experience from '../components/Experience';
 import TimelineSkills from '../components/TimelineSkills';
 import FunFacts from '../components/FunFacts';
-import Contact from '../components/Contact';
 import Footer from '../components/Footer';
 import SEO from '../components/SEO';
+import { useLanguage } from '../context/LanguageContext';
+
+const Contact = React.lazy(() => import('../components/Contact'));
 
 const Home = () => {
+    const { t } = useLanguage();
+    const seoContent = t('seo');
+
     return (
         <>
             <SEO
-                title="Salvador Villarroel - Full Stack Fejlesztő & Automatizálási Szakértő"
-                description="Salvador Villarroel portfóliója. Full Stack fejlesztő, Automatizálási szakértő és Sakk oktató. React és modern webes megoldások."
+                title={seoContent.title}
+                description={seoContent.description}
                 schema={{
                     "@context": "https://schema.org",
                     "@type": "Person",
                     "name": "Salvador Villarroel",
-                    "url": "https://vhsalvador.github.io/salvador/",
-                    "image": "https://vhsalvador.github.io/salvador/img/hero-profile-new.jpg",
-                    "jobTitle": "Full Stack Developer",
+                    "url": "https://salvador.hu/",
+                    "image": "https://salvador.hu/img/hero-profile-new-medium.webp",
+                    "jobTitle": seoContent.jobTitle,
                     "knowsAbout": ["React", "JavaScript", "Node.js", "Web Development", "Chess", "AI Automation", "Community Management"],
                     "alumniOf": {
                         "@type": "CollegeOrUniversity",
@@ -37,16 +42,16 @@ const Home = () => {
                     "hasOccupation": [
                         {
                             "@type": "Occupation",
-                            "name": "Full Stack Developer",
+                            "name": seoContent.jobTitle,
                             "occupationLocation": { "@type": "City", "name": "Budapest" }
                         },
                         {
                             "@type": "Occupation",
-                            "name": "Chess Coach"
+                            "name": seoContent.chessCoach
                         },
                         {
                             "@type": "Occupation",
-                            "name": "AI Automation Specialist"
+                            "name": seoContent.aiAutomation
                         }
                     ],
                     "sameAs": [
@@ -54,23 +59,23 @@ const Home = () => {
                         "https://linkedin.com/in/salvador-villarroel"
                     ]
                 }}
-                image="/img/hero-profile-new.jpg"
+                image="/img/hero-profile-new-medium.webp"
             />
             <header>
                 <Navbar />
             </header>
-            <main>
+            <main id="main">
                 <Hero />
                 <Stats />
                 <About />
                 <Experience />
                 <TimelineSkills />
                 <FunFacts />
-                <Contact />
+                <React.Suspense fallback={<div style={{ padding: '4rem', textAlign: 'center' }}>Loading contact form...</div>}>
+                    <Contact />
+                </React.Suspense>
             </main>
-            <footer>
-                <Footer />
-            </footer>
+            <Footer />
         </>
     );
 };

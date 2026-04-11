@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import sharp from 'sharp';
 import fs from 'fs';
 import path from 'path';
@@ -29,29 +30,44 @@ fs.readdir(imgDir, (err, files) => {
             const filenameNoExt = path.basename(file, ext);
 
             SIZES.forEach(size => {
-                const outputFile = path.join(imgDir, `${filenameNoExt}${size.suffix}.webp`);
+                const webpOutputFile = path.join(imgDir, `${filenameNoExt}${size.suffix}.webp`);
+                const avifOutputFile = path.join(imgDir, `${filenameNoExt}${size.suffix}.avif`);
 
-                // Skip if output file is same as input file (unlikely given different extension, but good practice)
-                if (inputFile === outputFile) return;
+                // Skip if output file is same as input file
+                if (inputFile === webpOutputFile || inputFile === avifOutputFile) return;
 
-                console.log(`Converting ${file} to ${path.basename(outputFile)} (width: ${size.width || 'original'})...`);
+                console.log(`Converting ${file} to WebP and AVIF (width: ${size.width || 'original'})...`);
 
-                let transform = sharp(inputFile);
+                let transformWebp = sharp(inputFile);
+                let transformAvif = sharp(inputFile);
 
                 if (size.width) {
-                    transform = transform.resize({ width: size.width });
+                    transformWebp = transformWebp.resize({ width: size.width });
+                    transformAvif = transformAvif.resize({ width: size.width });
                 }
 
-                transform
+                transformWebp
                     .webp({ quality: 80 })
-                    .toFile(outputFile)
+                    .toFile(webpOutputFile)
                     .then(info => {
-                        console.log(`✅ Generated ${path.basename(outputFile)}`);
+                        console.log(`✅ Generated ${path.basename(webpOutputFile)}`);
                     })
                     .catch(err => {
-                        console.error(`❌ Error converting ${file}: `, err);
+                        console.error(`❌ Error converting ${file} to WebP: `, err);
+                    });
+
+                transformAvif
+                    .avif({ quality: 60 })
+                    .toFile(avifOutputFile)
+                    .then(info => {
+                        console.log(`✅ Generated ${path.basename(avifOutputFile)}`);
+                    })
+                    .catch(err => {
+                        console.error(`❌ Error converting ${file} to AVIF: `, err);
                     });
             });
+
+
         }
     });
 });

@@ -41,6 +41,7 @@ Avoid reading the full component tree unless the task spans multiple components.
 ## Always do at session close
 - `npm install` if `node_modules` is missing (use `--legacy-peer-deps` if needed)
 - `npm run build` to verify — the Puppeteer prerender step fails in WSL (missing Chrome libs), that is expected and not a code error; the Vite build passing is sufficient
+- **LOCAL CHECK:** Always verify the site on a local server (`npm run dev` or `npx serve dist`) before uploading to the production server.
 - Commit all changes, then `git push origin main`
 - If requested to push live, run `npm run deploy:ftp` to upload directly to Rackhost via FTP.
 
