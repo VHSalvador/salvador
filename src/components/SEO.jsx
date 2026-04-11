@@ -3,7 +3,14 @@ import { Helmet } from 'react-helmet-async';
 import { useLocation } from 'react-router-dom';
 import { useLanguage } from '../context/LanguageContext';
 
-const SEO = ({ title, description, keywords, name, type, schema, image }) => {
+const SEO = ({
+    title = 'Salvador Villarroel - Portfolio',
+    description = 'Salvador Villarroel weboldala és portfóliója.',
+    keywords = 'web developer, react, portfolio, chess coach, sakk oktatás',
+    type = 'website',
+    schema,
+    image = '/img/hero-profile-new.webp'
+}) => {
     const { language } = useLanguage();
     const location = useLocation();
 
@@ -37,9 +44,9 @@ const SEO = ({ title, description, keywords, name, type, schema, image }) => {
             <meta property="og:description" content={description} />
             <meta property="og:image" content={imageUrl} />
             <meta property="og:url" content={canonicalUrl} />
+            <meta property="og:site_name" content="Salvador Villarroel Portfolio" />
             {/* End Facebook tags */}
             {/* Twitter tags */}
-            <meta name="twitter:creator" content={name} />
             <meta name="twitter:card" content="summary_large_image" />
             <meta name="twitter:title" content={title} />
             <meta name="twitter:description" content={description} />
@@ -55,13 +62,5 @@ const SEO = ({ title, description, keywords, name, type, schema, image }) => {
     );
 }
 
-SEO.defaultProps = {
-    title: 'Salvador Villarroel - Portfolio',
-    description: 'Salvador Villarroel weboldala és portfóliója.',
-    keywords: 'web developer, react, portfolio, chess coach, sakk oktatás',
-    name: 'Salvador Villarroel',
-    type: 'website',
-    image: '/img/hero-profile-new.jpg'
-};
 
 export default SEO;
