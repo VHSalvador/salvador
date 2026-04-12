@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { useLanguage } from '../../context/LanguageContext';
 import emailjs from '@emailjs/browser';
 import { Check } from 'lucide-react';
@@ -15,6 +15,7 @@ const ChessContact = () => {
         message: ''
     });
     const [status, setStatus] = useState(null); // null, 'submitting', 'success', 'error'
+    const lastSubmitTime = useRef(0); // Rate limiting: track last submission timestamp
 
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.id]: e.target.value });
@@ -23,6 +24,15 @@ const ChessContact = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
+        // Rate limiting: prevent rapid-fire submissions (60s cooldown)
+        const now = Date.now();
+        const cooldownMs = 60_000;
+        if (now - lastSubmitTime.current < cooldownMs) {
+            const secsLeft = Math.ceil((cooldownMs - (now - lastSubmitTime.current)) / 1000);
+            alert(`Please wait ${secsLeft}s before submitting again.`);
+            return;
+        }
+
         // Basic validation
         if (!formData.name || !formData.email || !formData.message) {
             alert('Please fill in the required fields (Name, Email, Message).');
@@ -30,6 +40,7 @@ const ChessContact = () => {
         }
 
         setStatus('submitting');
+        lastSubmitTime.current = Date.now();
 
         const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
         const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;

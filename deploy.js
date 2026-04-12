@@ -30,7 +30,8 @@ async function deploy() {
             host: host,
             user: user,
             password: password,
-            secure: false
+            secure: true,
+            secureOptions: { rejectUnauthorized: false }
         });
         
         console.log(`Connected! Uploading contents of /dist folder to ${remoteDir}...`);

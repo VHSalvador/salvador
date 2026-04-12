@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { useLanguage } from '../context/LanguageContext';
 import { Mail, Linkedin, Github, ChevronLeft, ChevronRight, Check } from 'lucide-react';
 import emailjs from '@emailjs/browser';
@@ -13,10 +13,17 @@ const Contact = () => {
     const [formData, setFormData] = useState({ name: '', email: '' });
     const [bookingStatus, setBookingStatus] = useState(null); // null, 'submitting', 'success', 'error'
     const [formErrors, setFormErrors] = useState({});
+    const lastSubmitTime = useRef(0); // Rate limiting: track last submission timestamp
     const [bookedSlots, setBookedSlots] = useState(() => {
         if (typeof window !== 'undefined') {
-            const saved = localStorage.getItem('bookedSlots');
-            return saved ? JSON.parse(saved) : {};
+            try {
+                const saved = localStorage.getItem('bookedSlots');
+                return saved ? JSON.parse(saved) : {};
+            } catch {
+                // Corrupted/tampered localStorage — reset gracefully
+                localStorage.removeItem('bookedSlots');
+                return {};
+            }
         }
         return {};
     });
@@ -86,6 +93,16 @@ const Contact = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
+        // Rate limiting: prevent rapid-fire submissions (60s cooldown)
+        // eslint-disable-next-line react-hooks/purity -- Date.now() is called inside event handler, not during render
+        const now = Date.now();
+        const cooldownMs = 60_000;
+        if (now - lastSubmitTime.current < cooldownMs) {
+            const secsLeft = Math.ceil((cooldownMs - (now - lastSubmitTime.current)) / 1000);
+            setFormErrors({ submit: `Please wait ${secsLeft}s before submitting again.` });
+            return;
+        }
+
         const errors = {};
         if (!selectedDate || !selectedTime) errors.datetime = content.form.errorDatetime;
         if (!formData.name.trim()) errors.name = content.form.errorName;
@@ -96,6 +113,8 @@ const Contact = () => {
         }
         setFormErrors({});
         setBookingStatus('submitting');
+        // eslint-disable-next-line react-hooks/purity -- Date.now() inside event handler
+        lastSubmitTime.current = Date.now();
 
         const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
         const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
